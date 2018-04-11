@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<!-- saved from url=(0102)file:///C:/Users/A1588/OneDrive/%E6%96%87%E6%A1%A3/layui/BBD-%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE.html -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>权限设置</title>
+<link rel="stylesheet" href="layui/css/layui.css">
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script src="layer/layer.js" charset="utf-8"></script>
+<link href="css/author.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div id="atom">
+		<div id="top"></div>
+		<div class="zero">
+			<div class="head">
+				<p>&lt;用户角色&gt;</p>
+			</div>
+			<div class="trunk one">
+				<div class="trunkleft">
+					<ul class="ulzero">
+						<li onclick="sel(this)">名山</li>
+						<li onclick="sel(this)">山与海</li>
+						<li onclick="sel(this)">更改使用密码</li>
+						<li onclick="sel(this)">系统权限配置</li>
+					</ul>
+				</div>
+				<div id="one" class="trunkright ">
+					<button class=" buttontwo">—</button>
+					<button class=" buttona">—</button>
+					<button class=" buttontwo">—</button>
+					<button class=" buttontwo">—</button>
+				</div>
+			</div>
+
+
+
+			<div class="zerobottom">
+
+				<div class="zerobottomleft">
+					<input type="text" name="username" placeholder="添加用户名"
+						class="layui-input input">
+				</div>
+				<div class="zerobottomright">
+					<button class="layui-btn layui-btn-fluid addbutton ">
+						<i class="layui-icon"></i>
+					</button>
+				</div>
+
+			</div>
+
+
+		</div>
+		<div class="zero">
+			<div class="head">
+				<p>&lt;部门管理&gt;</p>
+
+			</div>
+			<div class="trunk two">
+				<div class="trunkleft">
+					<ul class="ulzero">
+						<li onclick="sel1(this)">名山</li>
+						<li onclick="sel1(this)">山与海</li>
+						<li onclick="sel1(this)">更改使用密码</li>
+						<li onclick="sel1(this)">系统权限配置</li>
+					</ul>
+				</div>
+				<div id="two" class="trunkright">
+					<button class=" buttontwo ">—</button>
+					<button class=" buttontwo">—</button>
+					<button class=" buttontwo">—</button>
+					<button class=" buttontwo">—</button>
+				</div>
+			</div>
+
+			<div class="zerobottom">
+				<div class="zerobottomleft">
+					<input type="text" name="dept" placeholder="添加部门名称"
+						class="layui-input input">
+				</div>
+				<div class="zerobottomright">
+					<button class="layui-btn layui-btn-fluid addbutton">
+						<i class="layui-icon"></i>
+					</button>
+				</div>
+			</div>
+
+
+
+
+		</div>
+		<div class="zero" style="margin-left: 7%">
+			<div class="head">
+				<p>&lt;角色管理&gt;</p>
+
+			</div>
+			<div class="trunk three">
+				<div class="trunkleft">
+					<ul class="ulzero">
+						<li onclick="sel2(this)">产品经理</li>
+						<li onclick="sel2(this)">项目经理</li>
+						<li onclick="sel2(this)">技术经理</li>
+						<li onclick="sel2(this)">系统权限配置</li>
+					</ul>
+				</div>
+				<div id="three" class="trunkright">
+					<button class=" buttontwo">—</button>
+					<button class=" buttontwo">—</button>
+					<button class=" buttontwo">—</button>
+					<button class=" buttontwo">—</button>
+				</div>
+			</div>
+
+			<div class="zerobottom">
+				<div class="zerobottomleft">
+					<input type="text" name="role" placeholder="添加角色名称"
+						class="layui-input input">
+				</div>
+				<div class="zerobottomright">
+					<button class="layui-btn layui-btn-fluid addbutton">
+						<i class="layui-icon"></i>
+					</button>
+				</div>
+			</div>
+
+
+		</div>
+		<div class="zero" style="width: 23%; margin-left: 3%">
+			<div class="head">
+				<p>&lt;角色权限配置&gt;</p>
+
+			</div>
+			<div class="trunk zero1">
+
+				<div class="layui-collapse">
+					<div class="layui-colla-item">
+						<h2 class="layui-colla-title">
+							平台系统设置<i class="layui-icon layui-colla-icon"></i>
+						</h2>
+						<div class="layui-colla-content  layui-show">
+							
+						</div>
+					</div>
+					<div class="layui-colla-item">
+						<h2 class="layui-colla-title">
+							平台功能<i class="layui-icon layui-colla-icon"></i>
+						</h2>
+						<div class="layui-colla-content  layui-show">
+							<ul>
+								<li value="0">使用项目库功能</li>
+								<li value="0">平台FP资源设置</li>
+								<li value="0">平台OTM资源设置</li>
+								<li value="0">使用Mode功能</li>
+							</ul>
+						</div>
+					</div>
+					<div class="layui-colla-item">
+						<h2 class="layui-colla-title">
+							仪表盘功能<i class="layui-icon layui-colla-icon"></i>
+						</h2>
+						<div class="layui-colla-content  layui-show">
+							<ul>
+								<li value="0">系统权限配置</li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bottom">
+				<button onclick="relateone() "
+					class="layui-btn layui-btn-normal layui-btn-radius button">取消</button>
+				<button onclick="relate() "
+					class=" layui-btn layui-btn-danger layui-btn-radius button">确定</button>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="layui/layui.js" charset="utf-8"></script>
+	<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+	<script>
+		function deploy(){
+		layui.use([ 'element', 'layer' ], function() {
+			var element = layui.element;
+			var layer = layui.layer;
+
+			//监听折叠
+			element.on('collapse(test)', function(data) {
+				layer.msg('展开状态：' + data.show);
+			});
+		});
+	} 
+		
+
+	</script>
+	<!--权限选择，实现多选，点击选中，再点取消  -->
+	<script type="text/javascript">
+	
+	var authArray=new Array();
+	$(".zero1").on("click","li",function(){ 
+		var flag=true;
+		console.log(authArray.length)
+		console.log(authArray)
+		var zero = $(".zero1 li")
+		for (var i = 0; i < zero.length; i++) {
+			zero[i].index = i;
+			zero[i].onclick = function() {
+				
+				for(var i=0;i<authArray.length;i++){
+					if(authArray[i]==$(this).attr("id")){
+						authArray.splice(i,1)
+						flag=false;
+					}
+				}
+				if(flag){
+					authArray[authArray.length]=$(this).attr("id");
+				}
+				
+				var j = this.index;
+				if (zero[j].value == "0") {
+					zero[j].style.background = "rgb(127, 127, 127)";
+					zero[j].style.color = "rgb(255,255,255)";
+					zero[j].value = "1";
+				} else {
+					zero[j].style.background = "rgb(242, 242, 242)"
+					zero[j].style.color = "rgb(0,0,0)";
+					zero[j].value = "0";
+				}
+				console.log(zero[j].innerText)
+				console.log( $(this).attr("id"))
+			}
+		}
+
+		})
+	
+	
+		/* 全局变量存储选中的id分别对应，用户，部门，角色 */
+		var userid = null;
+		var deptid = null;
+		var roleid = null;
+		/*用户部分的选中事件，要求，部允许多选，获取当前选中对象的id  */
+		function sel(obj) {
+			var menu = $(".one li")
+			userid = $(obj).val()
+			console.log(userid)
+			getUserIdDetails();
+			for (var i = 0; i < menu.length; i++) {
+				if (menu[i] != obj) {
+					$(menu[i]).css('background-color', 'rgb(242, 242, 242)')
+				} else {
+					$(menu[i]).css('background-color', '#b7b7b7')
+				}
+			}
+		}
+/* 部门部分的选中事件，效果和用户相同 */
+		function sel1(obj) {
+			var menu1 = $(".two li")
+			deptid = $(obj).val()
+			console.log($(obj).val())
+			for (var i = 0; i < menu1.length; i++) {
+				if (menu1[i] != obj) {
+					$(menu1[i]).css('background-color', 'rgb(242, 242, 242)')
+				} else
+					$(menu1[i]).css('background-color', '#b7b7b7')
+			}
+		}
+		/* 角色部分的选中事件，效果和用户相同 */
+		function sel2(obj) {
+			var menu2 = $(".three li")
+			roleid = $(obj).val()
+			console.log($(obj).val())
+			for (var i = 0; i < menu2.length; i++) {
+				if (menu2[i] != obj) {
+					$(menu2[i]).css('background-color', 'rgb(242, 242, 242)')
+				} else
+					$(menu2[i]).css('background-color', '#b7b7b7')
+			}
+		}
+	/* 添加用户，部门，角色的方法 */
+		$(".addbutton ").click(function() {
+			var username = $("input[name='username']").val();
+			var dept_name = $("input[name='dept']").val();
+			var role_name = $("input[name='role']").val();
+			if (username != "") {
+				saveUser(username);//用户添加
+			} else if (dept_name != "") {
+				saveDept(dept_name);//部门添加
+			} else if (role_name != "") {
+				saveRole(role_name);//角色添加
+			}
+		});
+/* 用户添加 */
+		function saveUser(username) {
+			$.ajax({
+				type : "post",//提交方式 get post
+				url : "saveUser.action",//提交地址
+				dataType : "json",//期望数据类型  json | text | html |xml
+				data : {
+					"username" : username
+				},
+				success : function(data) {
+					console.log(data)
+					$("input[name='username']").val("");
+					listUser();
+					alert("用户添加成功，添加部门与角色激活账号。");
+				},
+				error : function() {
+				}
+			})
+		}
+/*添加角色  */
+		function saveRole(role_name) {
+			$.ajax({
+				type : "post",//提交方式 get post
+				url : "saveRole.action",//提交地址
+				dataType : "json",//期望数据类型  json | text | html |xml
+				data : {
+					"role_name" : role_name
+				},
+				success : function(data) {
+					console.log(data)
+					$("input[name='role']").val("");
+					listRole();
+					alert("角色添加成功，添加权限激活角色！");
+				},
+				error : function() {
+
+				}
+			})
+		}
+/*添加部门  */
+		function saveDept(dept_name) {
+			$.ajax({
+				type : "post",//提交方式 get post
+				url : "saveDept.action",//提交地址
+				dataType : "json",//期望数据类型  json | text | html |xml
+				data : {
+					"dept_name" : dept_name
+				},
+				success : function(data) {
+					console.log(data)
+					$("input[name='dept']").val("");
+					listDept();
+					alert("部门添加成功！");
+				},
+				error : function() {
+
+				}
+			})
+		}
+
+		//加载时刷新
+		$(document).ready(function() {
+			listUser();
+			listRole();
+			listDept();
+			listAuth(); 
+		});
+
+		// 刷新用户列表
+		function listUser() {
+			$
+					.ajax({
+						type : "post",//提交方式 get post
+						url : "listUser.action",//提交地址
+						dataType : "json",//期望数据类型  json | text | html |xml
+						data : {
+							"username" : "username"
+						},
+						success : function(data) {
+
+							var tema = "";
+							var tem = "";
+							for (var i = 0; i < data.length; i++) {
+								tema += "<li id='user" + data[i].id
+										+ "'  value=' " + data[i].id
+										+ " '  onclick='sel(this)'>"
+										+ data[i].realname + "</li>";
+								if (data[i].locked == 0) {
+									tem += "<button  onclick='delFP(this) '  value='user"
+											+ data[i].id
+											+ "'  class='buttontwo'>—</button>"
+								} else {
+									tem += "<button class='buttona'>—</button>"
+								}
+
+							}
+
+							$('.one  ul').html(tema)
+							$("#one").html(tem)
+						},
+						error : function() {
+
+						}
+					})
+		}
+//刷新角色
+		function listRole() {
+			$
+					.ajax({
+						type : "post",//提交方式 get post
+						url : "listRole.action",//提交地址
+						dataType : "json",//期望数据类型  json | text | html |xml
+						data : {},
+						success : function(data) {
+							var tema = "";
+							var tem = "";
+							for (var i = 0; i < data.length; i++) {
+								tema += "<li  id='role" + data[i].id
+										+ "'  value=' " + data[i].id
+										+ " ' onclick='sel2(this)'>"
+										+ data[i].role_name + "</li>"
+
+								if (data[i].available == 0) {
+									tem += "<button  onclick='delFP(this) '  value='role"
+											+ data[i].id
+											+ "'  class='buttontwo'>—</button>"
+								} else {
+									tem += "<button class='buttona'>—</button>"
+								}
+							}
+							$('.three ul').html(tema)
+							$("#three").html(tem)
+						},
+						error : function() {
+
+						}
+					})
+		}
+//刷新部门
+		function listDept() {
+			$
+					.ajax({
+						type : "post",//提交方式 get post
+						url : "listDept.action",//提交地址
+						dataType : "json",//期望数据类型  json | text | html |xml
+						data : {},
+						success : function(data) {
+							var tema = "";
+							var tem = "";
+							for (var i = 0; i < data.length; i++) {
+								tema += "<li  id='dept" + data[i].id
+										+ "'  value=' " + data[i].id
+										+ " '  onclick='sel1(this)'>"
+										+ data[i].dept_name + "</li>"
+
+								if (data[i].available == 0) {
+									tem += "<button   onclick='delFP(this) '  value='dept"
+											+ data[i].id
+											+ "'  class='buttontwo'>—</button>"
+								} else {
+									tem += "<button class='buttona'>—</button>"
+								}
+							}
+							$('.two ul').html(tema)
+							$("#two").html(tem)
+						},
+						error : function() {
+
+						}
+					})
+		}
+		/* 删除功能 */
+		
+		function delFP(obj, event) {
+			var id = $(obj).val();//user
+			var flag = $("#" + id).val();
+			var user = id.substring(0, 4)
+			var url = null;
+			console.log(user)
+			if (user == "user") {
+				url = "removeUser.action";
+				removeUser(flag, obj, event, id, url);
+			} else if (user == "role") {
+				url = "removeRole.action";
+				removeUser(flag, obj, event, id, url);
+			} else if (user == "dept") {
+				url = "removeDept.action"
+				removeUser(flag, obj, event, id, url);
+			}
+		}
+//删除方法的弹出框选择
+		function removeUser(flag, obj, event, id, url) {
+			layer.confirm('确认删除？', {
+				btn : [ '是', '否' ]
+			}, function(index, layero) {
+				$(obj).remove();
+				$("#" + id).remove();
+				/*   event.stopPropagation(); */
+				layer.close(index);
+				$.ajax({
+					type : 'post',
+					url : url,
+					data : {
+						'id' : flag
+					},
+					dataType : 'json',
+					success : function(data) {
+					},
+					error : function() {
+						console.log('请求失败')
+					}
+				});
+			}, function(index) {
+			});
+		}
+//关联用户，部门，角色之间的关系
+		function relate() {
+			if (deptid != null && userid != null && roleid != null) {
+				updateUserAndRoleAndDept();
+			} else if (deptid != null && userid != null) {
+				useranddept();
+			} else if (userid != null && roleid != null) {
+				updateUserAndRole();
+			}
+			listUser();
+			listRole();
+			listDept();
+		}
+//关联用户，部门
+		function useranddept() {
+			$.ajax({
+				type : "post",//提交方式 get post
+				url : "updateUserDept.action",//提交地址
+				dataType : "json",//期望数据类型  json | text | html |xml
+				data : {
+					"id" : userid,
+					"dept_id" : deptid
+				},
+				success : function(data) {
+					console.log(data)
+					alert("修改部门成功！");
+				},
+				error : function() {
+
+				}
+			})
+		}
+//关联用户角色
+		function updateUserAndRole() {
+			$.ajax({
+				type : "post",//提交方式 get post
+				url : "updateUserAndRole.action",//提交地址
+				dataType : "json",//期望数据类型  json | text | html |xml
+				data : {
+					"user_id" : userid,
+					"role_id" : roleid
+				},
+				success : function(data) {
+					console.log(data)
+					alert("修改角色成功！");
+				},
+				error : function() {
+
+				}
+			})
+		}
+//关联用户，角色，部门，
+		function updateUserAndRoleAndDept() {
+			$.ajax({
+				type : "post",//提交方式 get post
+				url : "updateUserAndRoleAndDept.action",//提交地址
+				dataType : "json",//期望数据类型  json | text | html |xml
+				data : {
+					"id" : userid,
+					"user_id" : userid,
+					"role_id" : roleid,
+					"dept_id" : deptid
+				},
+				success : function(data) {
+					console.log(data)
+
+				},
+				error : function() {
+
+				}
+			})
+		}
+
+		function relateone() {
+			roleid = null;
+			deptid = null;
+			userid = null;
+			listUser();
+			listRole();
+			listDept();
+		}
+		var rid=null;
+		var did=null;
+		var auth=null;//提供给查询用户详细信息
+		//当选中用户的时候同时改变他所在部门，角色的状态，级联
+		function getUserIdDetails() {
+			$("#"+rid).css('background-color', 'rgb(242, 242, 242)')
+			$("#"+did).css('background-color', 'rgb(242, 242, 242)')
+			$.ajax({
+				type : "post",//提交方式 get post
+				url : "getUserIdDetails.action",//提交地址
+				dataType : "json",//期望数据类型  json | text | html |xml
+				data : {
+					"id" : userid
+				},
+				success : function(data) {
+					console.log(data.role.auths[0].auth_name)
+					console.log(data)
+				/*  for(var i=0;i<data.role.auths.length;i++){
+						console.log(data.role.auths[i].auth_name)
+						console.log(data.role.auths[i].id)
+						auth="auth"+data.role.auths[i].id
+						console.log(auth)
+						$("#"+auth).css('background-color', 'rgb(127, 127, 127)')
+						$("#"+auth).css('color', 'rgb(255,255,255)')
+						$("#"+auth).value = "1";
+					} //遍历出该用户所拥有的权限 */
+					  rid="role"+data.role.id
+					  did="dept"+data.dept.id
+					console.log(rid)
+					$("#"+rid).css('background-color', '#b7b7b7')
+					$("#"+did).css('background-color', '#b7b7b7')
+				},
+				error : function() {
+		
+				}
+			})
+		}
+		
+		
+		/* 刷新权限列表 */
+		function listAuth() {
+			$.ajax({
+				type : "post",
+				url : "listAuth.action",
+				dataType : "json",
+				data : "",
+				success : function(data) {
+					var menu="";
+					for(var i=0;i<data.length;i++){
+						if(data[i].auth_type=="一级菜单"&&data[i].parentid==0){
+							menu+="<div  onclick='deploy()'    class=' layui-colla-item '>"
+								+"<h2 class=' layui-colla-title '>"
+								+" "+data[i].auth_name+" <i class='layui-icon layui-colla-icon'></i>"
+								+"</h2>"
+								+"<div class='layui-colla-content  layui-show'>"
+								+"<ul>"
+								for(var j=0; j<data.length;j++){
+									if(data[j].auth_type=="二级菜单"&&data[i].id==data[j].parentid){
+										menu+="<li   id='auth" + data[j].id+"'  value='0'> "+data[j].auth_name+"  </li>"
+									}
+								}
+								menu+="</ul>"
+								+"</div>"
+								+"</div>";
+						}
+					}
+					$(".layui-collapse").html(menu)
+				},
+				error : function() {
+				}
+			})
+
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script  src="js/jquery-3.2.1.js"></script>
+    <script  src="./layer/layer.js"></script>
+    <meta charset="UTF-8">
+    <title>BBS-SMS</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/product.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="layui/css/layui.css">
+</head>
+<body>
+<!--主体内容显示区-->
+    <div id="main">
+        <!--头部，项目logo显示区-->
+        <div class="header">
+            <div id="logo"><img src="image/LOGO.png"></div>
+            <div id="title">
+                数联铭品软件开发资源管理系统  v1.0
+            </div>
+            <div id="login">
+                <i class="layui-icon" style="color: white">&#xe623;</i>
+                <a href="#">项目-夏经理</a>
+            </div>
+        </div>
+        <!--上部内容显示区-->
+        <div id="content">
+            <!--菜单显示区-->
+            <div id="meau">
+                <div id="icon"><img src="image/menuicon.png" style="float: left;">主菜单</div>
+               
+                <ul class="menulist">
+                    <li id="" onclick="sel(this);"><a href="javascript:;"><i class="layui-icon" style="float: left;padding-left: 15px">&#xe63c;</i>我的项目</a></li>
+                </ul>
+            </div>
+            <!--表格数据显示区-->
+                <!--表格列名-->
+                <div class="message">
+                    <table class="list">
+                        <thead>
+                            <tr>
+                                <th>创建时间</th>
+                                <th>项目名称</th>
+                                <th>项目阶段</th>
+                                <th>项目金额</th>
+                                <th>所属部门</th>
+                                <th>产品</th>
+                                <th>项目</th>
+                                <th>技术</th>
+                                <th>Mode</th>
+                                <th>供应商啊啊是否对</th>
+                                <th>高</th>
+                                <th>中</th>
+                                <th>低</th>
+                                <th>总</th>
+                                <th>人天</th>
+                            </tr>
+                        </thead>
+                        <tbody class="detail">
+                        <tr class="detail">
+                            <td>2018年3月22日</td>
+                            <td>外包商</td>
+                            <td>合同流程</td>
+                            <td>36000</td>
+                            <td>技术部门</td>
+                            <td>吴经理</td>
+                            <td>唐经理</td>
+                            <td>谭经理</td>
+                            <td>FP模式</td>
+                            <td>软通动力</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>8</td>	
+                            <td>100</td>
+                        </tr>
+                        <tr class="detail">
+                            <td>2018年3月22日</td>
+                            <td>外包商</td>
+                            <td>合同流程</td>
+                            <td>36000</td>
+                            <td>技术部门</td>
+                            <td>吴经理</td>
+                            <td>唐经理</td>
+                            <td>谭经理</td>
+                            <td>FP模式</td>
+                            <td>软通动力</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>8</td>
+                            <td>100</td>
+                        </tr>
+                        <tr class="detail">
+                            <td>2018年3月22日</td>
+                            <td>外包商</td>
+                            <td>合同流程</td>
+                            <td>36000</td>
+                            <td>技术部门</td>
+                            <td>吴经理</td>
+                            <td>唐经理</td>
+                            <td>谭经理</td>
+                            <td>FP模式</td>
+                            <td>软通动力</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>8</td>
+                            <td>100</td>
+                        </tr>
+                        <tr class="detail">
+                            <td>2018年3月22日</td>
+                            <td>外包商</td>
+                            <td>合同流程</td>
+                            <td>36000</td>
+                            <td>技术部门</td>
+                            <td>吴经理</td>
+                            <td>唐经理</td>
+                            <td>谭经理</td>
+                            <td>FP模式</td>
+                            <td>软通动力</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>8</td>
+                            <td>100</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+        <!--数据详情显示区-->
+        <div id="content1">
+            <div id="add">
+                <button id="test2"><img src="image/增加.png"></button>
+            </div>
+            <div id="project">&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="msg">项目名称：
+                    <input type="text" value="" placeholder="项目名称"/>
+                </div>&nbsp;&nbsp;&nbsp;
+                <div class="msg">项目预算金额：
+                    ￥<input type="text" value="" placeholder="项目预算金额"/>
+                </div>&nbsp;&nbsp;&nbsp;
+                <div class="msg mode">项目执行模式：
+                    <input type="text" readonly="readonly" value=""/>
+                    <input type="text" readonly="readonly" value=""/>
+                    <input type="text" readonly="readonly" value=""/>
+                </div>
+            </div>
+        </div>
+        <!--仪表盘区域-->
+        <div id="content2">
+            <!--左部仪表盘-->
+            <div class="dashboard">
+                <div id="dash">仪表盘</div>
+                <ul class="menulist1">
+                    <li id="toushi" onclick="sel1(this);"><a href="javascript:;"><i class="layui-icon" style="float: left;padding-left: 15px">&#xe63c;</i>项目透视</a></li>
+                    <li id="yusuan" onclick="sel1(this);"><a href="javascript:;"><i class="layui-icon" style="float: left;padding-left: 15px">&#xe63c;</i>预算分析</a></li>
+                </ul>
+                
+            </div>
+            <!--上部信息分类栏     项目透视-->
+            <div  id="upmessage" class="upmessage" >
+           
+                <table  class="list1" style="color: white;">
+                
+                    <thead>
+                    
+                        <tr>
+                            <th>&lt;销售合同扫描件&gt;</th>
+                            <th>&lt;PRD文档&gt;</th>
+                            <th>&lt;立项确认书&gt;</th>
+                            <th>&lt;外包商确认书&gt;</th>
+                            <th>&lt;外包合同扫描件&gt;</th>
+                            <th>&lt;项目中期验收单&gt;</th>
+                            <th>&lt;项目验收单&gt;</th>
+                            <th>&lt;服务评价表&gt;</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <!-- 预算分析 -->
+            <div id="upmessage1"  class="upmessage" style="display:none" >
+           			<div class="list2" style="left: 9%; color: white; width: 20%;">&lt;工程师信息&gt;</div>
+           			<div class="list2" style="left: 38%; color: white; width: 50%;">&lt;开发工作流程记录&gt;</div>
+           			<div class="list2" style="left: 70%; color: white; width: 30%;">&lt;人天&gt;&lt;实时结算&gt;</div>
+                
+            </div>
+            <!--下部信息显示栏-->
+            <div id="downmessage" class="downmessage">
+                <div class="down"><img src="image/增加.png"></div>
+                <div class="down"><img src="image/增加.png"></div>
+                <div class="down"><img src="image/增加灰.png"></div>
+                <div class="down"><img src="image/增加灰.png"></div>
+                <div class="down"><img src="image/增加.png"></div>
+                 <div class="down"><img src="image/增加.png"></div>
+                  <div class="down"><img src="image/增加.png"></div>
+                   <div class="down"><img src="image/增加.png"></div>
+            </div>
+        </div>
+    </div>  
+</body>
+<script>
+
+//弹出一个页面层
+/* $('#test2').on('click', function(){
+    layer.open({
+        type: 1,
+        area: ['600px', '360px'],
+        shadeClose: true, //点击遮罩关闭
+        content: '\<\div style="padding:20px;">自定义内容\<\/div>'
+    });
+}); */
+
+$('#test2').on('click', function(){
+	layer.open({
+		  type: 1
+		  ,title: false //不显示标题栏
+		  ,closeBtn: false
+		  ,area: '500px;'
+		  ,shade: 0.8
+		  ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+		  ,resize: false
+		  ,btn: ['取消', '确认']
+		  ,btnAlign: 'c'
+		  ,moveType: 1 //拖拽模式，0或者1
+		  ,content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">项目名称：'+'a'+'<br>项目预算金额：'+'b'+'<br><br>是否新增项目（确认后不可更改）</div>'
+		  ,success: function(layero){		    
+		  }
+		});
+    });
+    //点击预算分析
+ /* $('#yusuan').on('click', function(){
+		
+		$('#upmessage').replaceWith('<div id='+'"upmessage"'+ 'class='+'"upmessage"'+'>'+
+				'<table class='+'"list"'+'style='+'"color: white;"'+'>'+		
+                '<thead>'+
+               '<tr>'+
+                    '<th>&lt;工程师信息&gt;</th>'+
+                    '<th>&lt;开发工作流程记录&gt;</th>'+
+                    '<th>&lt;人天&gt;</th>'+
+                    '<th>&lt;实时结算&gt;</th>'+                    
+                '</tr>'+
+            '</thead>'+
+        '</table>'
+				);
+		$('#downmessage').remove();
+		
+    });  */
+    
+ $('#yusuan').on('click', function(){
+	 	$("#upmessage").css("display","none");
+		$("#upmessage1").css("display","block");
+		
+		
+ });
+    //点击项目透视
+    $('#toushi').on('click', function(){
+		$("#upmessage").css("display","block");
+    	$("#upmessage1").css("display","none"); 
+		
+		
+    });
+    function sel(obj) {
+        var menu = $(".menulist li")
+        for(var i=0;i<menu.length;i++)
+        {
+            if(menu[i]!=obj)
+            {
+                $(menu[i]).css('background-color','#000000')
+            }
+            else
+                $(menu[i]).css('background-color','#b7b7b7')
+        }
+    }
+    function sel1(obj) {
+        var menu = $(".menulist1 li")
+        for(var i=0;i<menu.length;i++)
+        {
+            if(menu[i]!=obj)
+            {
+                $(menu[i]).css('background-color','#000000')
+            }
+            else
+                $(menu[i]).css('background-color','#b7b7b7')
+        }
+    }
+</script>
+</html>

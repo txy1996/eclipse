@@ -1,0 +1,30 @@
+package service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import entity.Project;
+import mapper.ProjectMapper;
+import service.ProjectService;
+@Service("projectService")
+public class ProjectServiceImpl implements ProjectService {
+	@Autowired
+	public ProjectMapper projectMapper;
+	/**
+	 * 查询项目库信息
+	 */
+	public List<Project> findProject(int role_id) {
+		List<Project> listproject = projectMapper.findAllProject(role_id);
+		return listproject;
+	}
+	@Override
+	public void updateProjectMgr(String projectName, String projectMgr) {
+		projectMapper.updateProjectMgr(projectName,projectMgr);
+		
+	}
+
+}

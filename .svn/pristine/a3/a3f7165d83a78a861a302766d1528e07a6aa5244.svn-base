@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.UserMapper">
+
+	<!--添加用户  -->
+	<insert id="saveUser"  parameterType="entity.User">
+		insert into user (user.`username`,user.`realname`)
+		values(#{username},#{username})
+	</insert>
+	<!--删除用户  -->
+	<delete id="removeUser" parameterType="entity.User">
+		DELETE FROM USER WHERE user.`realname`=#{realname}
+	</delete>
+	<!--修改当前用户的所属部门  -->
+		<update id="updateUserDept" parameterType="entity.User">
+			UPDATE USER SET user.`dept_id`=#{dept_id}
+			WHERE
+			user.`realname`=#{realname}
+		</update>
+		<!--查询当前用户是否存在，用于登陆验证授权  -->
+		<select id="getUserNameAndPassword"  resultType="entity.User"  parameterType="entity.User">
+			
+		</select>
+		
+		<!-- 修改当前用户的密码 -->
+		<update id="updateUserPassword" parameterType="entity.User">
+				update user set user.`password`=#{password}
+				where
+				user.`realname`=#{realname}
+		</update>
+		
+		<!--查询所有用户的的信息  -->
+		<select id="listUser"  resultType="entity.User">
+			SELECT user.`realname`,user.`locked` FROM USER
+		</select>
+
+	<select id="findUserNameAndPwd" resultType="user">
+		select * from user where username=#{username} and password=#{password}
+	</select>
+
+</mapper>

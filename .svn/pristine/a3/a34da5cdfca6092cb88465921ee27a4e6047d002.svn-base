@@ -1,0 +1,46 @@
+/**
+ * FpMgrAction.java
+ */
+package controller;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import entity.Artisan;
+import entity.Supplier;
+import service.FpMgrService;
+
+/**
+ * @author SGY
+ * @date 2018年3月27日
+ * 供应商管理控制层
+ */
+@Controller
+public class FpMgrAction {
+	@Resource
+	private FpMgrService fpMgrService;
+	
+	@ResponseBody
+	@RequestMapping("searchAllSupp.action")
+	public List<Supplier> searchAllSupp(){
+		
+		return fpMgrService.searchAll();
+	}
+	
+	@ResponseBody
+	@RequestMapping("searchTechBySupId.action")
+	public List<Supplier> searchTechBySupId(int supid){
+		return fpMgrService.searchBySupId(supid);
+	}
+	
+	@ResponseBody
+	@RequestMapping("searchArtBySupidAndTech.action")
+	public List<Artisan> searchArtBySupidAndTech(int supid,int techid){
+		return fpMgrService.searchBySupIdAndTechid(supid, techid);
+	}
+}

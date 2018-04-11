@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.UserMapper">
+
+	<!--添加用户  -->
+	<insert id="saveUser"  parameterType="entity.User">
+		insert into user (user.`username`,user.`realname`)
+		values(#{username},#{username})
+	</insert>
+	<!--删除用户  -->
+	<delete id="removeUser" parameterType="entity.User">
+		DELETE FROM USER WHERE user.`id`=#{id} AND user.`locked`=0
+	</delete>
+	<!--修改当前用户的所属部门  -->
+		<update id="updateUserDept" parameterType="entity.User">
+			UPDATE USER SET user.`dept_id`=#{dept_id}
+			WHERE
+			user.`id`=#{id}
+		</update>
+		<!--查询当前用户是否存在，用于登陆验证授权  -->
+		<select id="getUserNameAndPassword"  resultType="entity.User"  parameterType="entity.User">
+			
+		</select>
+		
+		<!-- 修改当前用户的密码 -->
+		<update id="updateUserPassword" parameterType="entity.User">
+				update user set user.`password`=#{password}
+				where
+				user.`realname`=#{realname}
+		</update>
+		
+		<!--查询所有用户的的信息  -->
+		<select id="listUser"  resultType="entity.User">
+			SELECT user.`realname`,user.`locked`,user.`id` FROM USER
+		</select>
+
+	<select id="findUserNameAndPwd" resultType="user">
+		select * from user where username=#{username} and password=#{password}
+	</select>
+	<!--查询用户id  -->
+	<select id="getUserId" resultType="entity.User"  parameterType="entity.User">
+		select user.`id` from user  where user.`realname`=#{realname}
+	</select>
+	
+	<resultMap type="User" id="userDetails">
+		<id property="id" column="userid"/>
+	
+		<result property="realname" column="realname"/>
+		<association property="dept" column="dept_id" javaType="Dept">
+			<id property="id" column="deptid"></id>
+			
+			<result property="dept_name" column="dept_name"></result>
+		</association>
+		<association property="role" column="roleid" resultMap="mapper.RoleMapper.RoleMap">
+		</association>
+	</resultMap>
+	
+
+	<!--查询用户详细信息  -->
+	<select id="getUserIdDetails" resultMap="userDetails" parameterType="entity.User">
+	SELECT user.`id` AS userid,user.`realname`,dept.`id` AS
+	deptid,dept.`dept_name`,
+	role.`id` AS roleid,role.`role_name`,auth.`id` AS authid,auth.`auth_name`
+	FROM USER,dept,role,auth,userandrole,roleandauth
+	WHERE
+	user.`id`=#{id}
+	AND
+	user.`dept_id`=dept.`id`
+	AND
+	user.id=userandrole.`user_id`
+	AND
+	userandrole.`role_id`=role.`id`
+	AND
+	role.`id`=roleandauth.`role_id`
+	AND
+	roleandauth.`auth_id`=auth.`id`
+	</select>
+</mapper>

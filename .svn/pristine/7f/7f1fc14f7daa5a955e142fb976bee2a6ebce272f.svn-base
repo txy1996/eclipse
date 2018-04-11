@@ -1,0 +1,26 @@
+/**
+ * Artisan.java
+ */
+package mapper;
+
+import entity.Artisan;
+
+/**
+ * @author SGY
+ * @date 2018年3月26日
+ * 技术人员类dao
+ */
+public interface ArtisanMapper {
+	/**
+	 * 增加技术人员
+	 * @param artisan
+	 */
+	public void insert(Artisan artisan);
+	/**
+	 * 根据id删除技术人员
+	 * @param id
+	 */
+	public void delete(int id);
+	
+	
+}

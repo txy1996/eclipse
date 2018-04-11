@@ -1,0 +1,19 @@
+package service;
+
+import java.util.List;
+
+import entity.Artisan;
+import entity.TechVo;
+
+public interface TechService{
+	
+	// 查找供应商名称 和 技术类型
+	TechVo	findBySupplierAndTech();
+	//查询员工数目
+	TechVo findArtisanByTechIdAndSupIdAndCount(Artisan at);
+
+
+	
+		
+	
+}

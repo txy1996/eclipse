@@ -1,0 +1,5 @@
+driver=com.mysql.jdbc.Driver
+url=jdbc:mysql://192.168.2.14:3306/bbd-sms_db?characterEncoding=utf-8
+username=root
+password=123456
+

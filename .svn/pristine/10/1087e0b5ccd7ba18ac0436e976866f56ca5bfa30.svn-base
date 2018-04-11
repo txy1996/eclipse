@@ -1,0 +1,27 @@
+/**
+ * FpMgrService.java
+ */
+package service;
+
+import java.util.List;
+
+import entity.SupAndTech;
+import entity.Supplier;
+
+/**
+ * @author SGY
+ * @date 2018年3月26日
+ * FP供应商管理、OTM资源管理
+ */
+public interface FpMgrService {
+	/**
+	 * 查询所有供应商
+	 * @return
+	 */
+	public List<Supplier> searchAll();
+	/**
+	 * 根据供应商id查询所有技术类型
+	 * @return
+	 */
+	public List<Supplier> searchBySupId(int supId);
+}

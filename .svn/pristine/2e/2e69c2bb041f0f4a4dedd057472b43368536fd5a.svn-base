@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.SupplierMapper">
+	<resultMap type="Supplier" id="SuppTech">
+		<id property="id" column="fpid"></id>
+		<result property="supperlier_name" column="fpName"/>
+		<collection property="techs" ofType="Tech">
+			<id property="id" column="techid"></id>
+			<result property="tech_name" column="techName"/>
+		</collection>
+	</resultMap>
+	
+	<select id="findBySupid" parameterType="int" resultMap="SuppTech">
+		SELECT su.`id` fpid,su.`supperlier_name` fpName,te.`id` techid,te.`tech_name` techName
+		FROM supplier su,supandtech sat,tech te
+		WHERE su.`id`=sat.`sup_id` AND sat.`tech_id`=te.`id` AND su.`id`=#{id}
+	</select>
+	
+	<select id="findAllSupplier" resultType="Supplier">
+		SELECT id,supperlier_name FROM supplier
+	</select>
+</mapper>

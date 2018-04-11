@@ -1,0 +1,266 @@
+/* fp资源 */
+#div-fp{
+    position: relative;
+    width: 99%;
+    background: rgba(0,0,0,0.5);
+}
+#div-fp #fp{
+    position: absolute;
+    width: 28%;
+    height:500px;
+    background-color: white;
+    border: 1px solid #d9edf7;
+    overflow: auto;
+}
+#div-fp #fp-skil{
+    position: absolute;
+    top: 0%;
+    left: 29%;
+    width: 28%;
+    height:500px;
+    background-color: white;
+    border: 1px solid #d9edf7;
+    overflow: auto;
+}
+#div-fp #fp-technician{
+    position: absolute;
+    left: 57.9%;
+    width: 43%;
+    height:500px;
+    background-color: white;
+    border: 1px solid #d9edf7;
+    overflow:auto;
+}
+#div-fp #fp .fp-tab,#div-fp #fp-skil .fp-tab,#div-fp #fp-technician .fp-tab{
+    width: 100%;
+    text-align:center;
+    color: #7F83AC;
+    border-collapse: separate;
+    border-spacing: 0px 5px;
+    /*border-radius:10px;*/
+}
+#div-fp #fp .fp-tab .tab-th,#div-fp #fp-skil .fp-tab .tab-th{
+    width: 100%;
+    height: 60px;
+    font-size: 1.3em;
+    color: white;
+    background-color: black;
+}
+#div-fp #fp-technician .fp-tab .tab-th{
+    width: 100%;
+    height: 60px;
+    font-size: 1.3em;
+    color: white;
+    background-color: black;
+ }
+#div-fp #fp .fp-tab .tab-tb ,#div-fp #fp-skil .fp-tab .tab-tb, #div-fp #fp-technician .fp-tab .tab-tb {
+    height: 40px;
+    font-size: 1.3em;
+    background-color: #F2F2F2;
+}
+#div-fp #fp .fp-tab .tab-tb .minsign,#div-fp #fp-skil .fp-tab .tab-tb .minsign {
+    width: 12%;
+    background-color: white;
+}
+#div-fp #fp-technician .fp-tab .tab-tb .minsign {
+    width: 8%;
+    background-color: white;
+}
+#form-item{
+    position: absolute;
+    top: 520px;
+    width: 100%;
+}
+#form-item table{
+    width: 100%;
+    text-align:center;
+    border-collapse: separate;
+    border-spacing:10px;
+}
+#form-item table td input{
+    font-size: 1.5em;
+    padding:0 10px;
+    height: 60px;
+    border-radius:4px;
+    background-color: #E7E7E7;
+    color:#7F7F7F;
+    outline: 0;
+}
+#form-item table td img{
+    margin-left: 10px;
+}
+#form-item table td select{
+    font-size: 1.5em;
+    padding:0 10px;
+    height: 3em;
+    border-radius:4px;
+    background-color: #E7E7E7;
+    color:#7F7F7F;
+}
+.btn-item{
+    text-align: right;
+    margin-top: 50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+}
+
+/* 日志 */
+#log-info{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-color: white;
+}
+#log-info #log-table {
+    width: 100%;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 0px 5px;
+}
+#log-info #log-table #tab-head{
+    height: 60px;
+    color: white;
+    font-size: 1.5em;
+    background-color: #0C0C0C;
+}
+#log-info #log-table .tab-content{
+    height: 40px;
+    font-size: 1.3em;
+    background-color: #F2F2F2;
+}
+#search-select table{
+    width: 100%;
+    height: 100px;
+    text-align: center;
+}
+#search-select select{
+    font-size: 1.5em;
+    padding:0 10px;
+    height: 3em;
+    border-radius:4px;
+    background-color: #E7E7E7;
+    color:#7F7F7F;
+}
+
+/* 重置密码 */
+#reset-p {
+    width: 100%;
+    height: auto;
+  }
+#reset-p table {
+    width: 100%;
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+}
+#reset-p table #info-head{
+    width: 40%;
+    height: 60px;
+}
+#reset-p table #repwd{
+    width: 60%;
+    height: 60px;
+}
+#reset-p table #repwd input{
+    height: 40px;
+    background-color: #F2F2F2;
+    padding-left: 10px;
+}
+
+/* 工作流 */
+.downmessage{
+	position: absolute;
+    width: 85%;
+    height: 75%;
+    left: 14.64%;
+    top:15%;
+    background-color: white;
+    overflow: auto;
+}
+.downmessage ul li{
+	height:22px;
+	border-radius:5px;
+	background-color: #D3D3D3;
+}
+.downmessage #ul-info{
+    position: absolute;
+    left: 1%;
+    top: 5%;
+    width: 15%;
+}
+.downmessage #ul-stream{
+    position: absolute;
+    top: 5%;
+    left: 16.5%;
+    width: 53%;
+}
+.downmessage #ul-dp{
+    position:absolute;
+    top: 5%;
+    left: 70%;
+    width: 5%;
+}
+.downmessage #ul-kont{
+    position:absolute;
+    top: 5%;
+    left: 75%;
+    width: 10.2%;
+}
+.downmessage #ul-export{
+    position:absolute;
+    top: 5%;
+    left: 85.2%;
+    width: 9.2%;
+    overflow: hidden;
+}
+.downmessage #ul-export li{
+    text-align: center;
+    border: 3px solid white;
+    color: #7F7F7F;
+    height: 150px;
+}
+.downmessage #ul-export span{
+	display: block;
+}
+.downmessage #ul-export span #export-btn{
+	width: 100px;
+	height: 45px;
+	background-color: rgb(171,31,45);
+	color: white;
+}
+.downmessage #ul-dp li, #ul-kont li{
+    text-align: center;
+    line-height: 22px;
+    background-color: black;
+    border: 3px solid white;
+    color: white;
+    border-radius: 5px;
+}
+.downmessage #ul-info li, #ul-stream li{
+    text-align: center;
+    line-height: 22px;
+    border: 3px solid white;
+    color: #7F7F7F;
+    height: 22px;
+}
+/* 滚动条 */
+/*滚动条整体部分*/
+::-webkit-scrollbar{
+    width: 10px;
+    background-color: #7F7F7F;
+}
+/*滚动条里面的小方块，能向上向下移动（或往左往右移动，取决于是垂直滚动条还是水平滚动条）*/
+::-webkit-scrollbar-thumb {
+    background-color: #000000;
+}
+/*滚动条的轨道（里面装有Thumb）*/
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    border: 1px solid #d9edf7;
+}
+/*滚动条的轨道的两端按钮，允许通过点击微调小方块的位置。*/
+::-webkit-scrollbar-button{
+    height: 2px;
+    width: 2px;
+    border-radius: 1px;
+}

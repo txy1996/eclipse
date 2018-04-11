@@ -1,0 +1,37 @@
+/**
+ * Tech.java
+ */
+package mapper;
+
+import java.util.List;
+
+import entity.Tech;
+
+/**
+ * @author SGY
+ * @date 2018年3月26日
+ * 技术实体类dao
+ */
+public interface TechMapper {
+	/**
+	 * 增加技术名称
+	 * @param tech
+	 */
+	public void insert(Tech tech);
+	/**
+	 * 根据id删除技术名称
+	 * @param id
+	 */
+	public void delete(int id);
+	/**
+	 * 根据技术名称查询
+	 * @param techname
+	 * @return
+	 */
+	public Tech findByName(String techname);
+	
+	
+	public List<Tech> findAllTech();
+	
+	
+}

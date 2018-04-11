@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改密码</title>
+    <link type="text/css" rel="stylesheet" href="css/sid-style.css">
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="layer/layer.js"></script>
+    <script src="layui/layui.js"></script>
+
+</head>
+<body style="background-color: #7F7F7F">
+    <div id="reset-p">
+        <table>
+            <tr id="info-head">
+                <td colspan="3">&lt;用户信息&gt;</td>
+                <td colspan="3">&lt;密码重置&gt;</td>
+            </tr>
+            <tr id="repwd">
+                <td>张三丰</td>
+                <td>Inno</td>
+                <td>产品经理</td>
+                <td><input input class="text-input" type="text" name="password" placeholder="请输入登陆密码" autocomplete="off"></td>
+                <td><input input class="text-input" type="text" name="password" placeholder="请输入8-16位新密码" autocomplete="off"></td>
+                <td><input input class="text-input" type="text" name="password" placeholder="请再次输入密码" autocomplete="off"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="btn-item">
+
+        <button class="layui-btn layui-btn-danger" onclick="immediately()">立即提交</button>
+        <button type="reset" class="layui-btn layui-btn-primary">取消</button>
+    </div>
+</body>
+</html>

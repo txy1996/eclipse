@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>项目经理主界面</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <link rel="stylesheet" href="css/projectstyle.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="layer/layer.js"></script>
+    <script src="layui/layui.js"></script>
+    <style type="text/css">
+    .aaa{
+    	float:left;
+    	border-radius: 3px;
+    	margin-left:10px;
+    }
+    </style>
+</head>
+<body>
+<!--主体内容显示区-->
+    <div id="main">
+        <!--头部，项目logo显示区-->
+        <div class="header">
+            <div id="logo"><img src="image/LOGO.png"></div>
+            <div id="title">
+                数联铭品软件开发资源管理系统  v1.0
+            </div>
+            <div id="login">
+                <i class="layui-icon" style="color: white">&#xe623;</i>
+                <a href="#">项目-谭经理</a>
+            </div>
+        </div>
+        <!--上部内容显示区-->
+        <div id="content">
+            <!--菜单显示区-->
+            <div id="meau">
+                <div id="icon"><img src="image/menuicon.png" style="float: left;">主菜单</div>         		
+                <ul class="menulist">
+                    <li onclick="selPRO(this)"><a id="selPRO1"><i class="layui-icon" style="float: left;padding-left: 15px">&#xe63c;</i>项目库</a></li>
+                    <li onclick="selPRO(this)"><a id="selPRO2"><i class="layui-icon" style="float: left;padding-left: 15px">&#xe63c;</i>我的项目</a></li>
+                </ul>          
+            </div>
+            <!--表格数据显示区-->
+                <!--表格列名-->
+            <div class="message">
+                    <table class="list">
+                        <thead>
+                            <tr>
+                                <th>创建时间</th>
+                                <th>项目名称</th>
+                                <th>项目阶段</th>
+                                <th>项目金额</th>
+                                <th>所属部门</th>
+                                <th>产品</th>
+                                <th>项目</th>
+                                <th>技术</th>
+                                <th>Mode</th>
+                                <th>供应商</th>
+                                <th>高</th>
+                                <th>中</th>
+                                <th>低</th>
+                                <th>总</th>
+                                <th>人天</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                        <tr class="detail" onclick="prolist(this)">
+                            <td>2018年3月22日</td>
+                            <td>外包商</td>
+                            <td>合同流程</td>
+                            <td>36000</td>
+                            <td>技术部门</td>
+                            <td>吴经理</td>
+                            <td>唐经理</td>
+                            <td>谭经理</td>
+                            <td>FP模式</td>
+                            <td>软通动力</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>8</td>
+                            <td>100</td>
+                        </tr>
+                        </tbody>
+                    </table>
+              </div>
+        </div>
+        <!--数据详情显示区-->
+        <div id="content1">
+            <div id="add">
+                <button id="test1"><img src="image/增加.png"></button>
+            </div>
+            <div id="project">&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="msg" id="name">项目名称：
+                    <input type="text" value="" placeholder="项目名称"/>
+                </div>&nbsp;&nbsp;&nbsp;
+                <div class="msg" id="money">项目预算金额：
+                    ￥<input type="text" value="" placeholder="项目预算金额"/>
+                </div>&nbsp;&nbsp;&nbsp;
+                <div class="msg mode" id="mode">项目执行模式：
+                    <input type="text" readonly="readonly" value=""/>
+                    <input type="text" readonly="readonly" value=""/>
+                    <input type="text" readonly="readonly" value=""/>
+                </div>
+            </div>
+        </div>
+        <!--仪表盘区域-->
+        <div id="content2">
+            <!--左部仪表盘-->
+            <div class="dashboard">
+                <div id="dash">仪表盘</div>
+                <ul class="menulist1">
+                    <li onclick="selT(this)"><a id="Tag-per"><i class="layui-icon" style="float: left;padding-left: 15px">&#xe63c;</i>项目透视</a></li>
+                    <li onclick="selT(this)"><a id="Tag-fp"><i class="layui-icon" style="float: left;padding-left: 15px">&#xe63c;</i>FP管理</a></li>
+                    <li onclick="selT(this)"><a id="Tag-otm"><i class="layui-icon" style="float: left;padding-left: 15px">&#xe63c;</i>OTM管理</a></li>
+                </ul>
+            </div>
+            <!--上部信息分类栏-->
+            <div class="upmessage" style="display: none">
+                <table class="list1" style="color: white;">
+                    <thead>
+                        <tr>
+                            <th>&lt;销售合同扫描件&gt;</th>
+                            <th>&lt;PRD文档&gt;</th>
+                            <th>&lt;立项确认书&gt;</th>
+                            <th>&lt;外包商确认书&gt;</th>
+                            <th>&lt;外包合同扫描件&gt;</th>
+                            <th>&lt;项目中期验收单&gt;</th>
+                            <th>&lt;项目验收单&gt;</th>
+                            <th>&lt;服务评价表&gt;</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="fpmessage ">
+                <div class="type1">&lt;项目技术类型&gt;</div>
+                <div class="engineer1">
+                    <span style="margin-left: 20%">&lt;工程师列表&gt;</span>
+                    <span style="margin-left: 33%">&lt;退出&gt;</span>
+                </div>
+                <div class="record1">
+                    <span style="margin-left: 30%">&lt;工作流程记录&gt;</span>
+                    <span style="margin-left: 41%">&lt;节奏&gt;</span>
+                </div>
+            </div>
+            <!--下部信息显示栏-->
+            <div class="downmessage" style="display: none">
+                <div class="down"><img src="image/增加.png"></div>
+                <div class="down"><img src="image/增加.png"></div>
+                <div class="down"><img src="image/增加灰.png"></div>
+                <div class="down"><img src="image/增加灰.png"></div>
+                <div class="down"><img src="image/增加.png"></div>
+            </div>
+            <div class="downmessage1"  >
+                <div class="type same">
+                    <ul>
+                        <li>Web前端</li>
+                        <li>系统后端</li>
+                        <li>App(IOS)</li>
+                        <li>App(Android)</li>
+                        <li>大数据算法</li>
+                    </ul> 
+                </div>
+                <div class="engineer same">
+                    <ul>
+                        <li>
+                            <span style="margin-left: 7%">张三丰</span>
+                            <span style="margin-left: 17.54%">高级</span>
+                            <span class="lidown">Done</span>
+                        </li>
+                        <li>
+                            <span style="margin-left: 7%">张四丰</span>
+                            <span style="margin-left: 17.54%">初级</span>
+                            <span class="lidown">Done</span>
+                        </li>
+                        <li>
+                            <span style="margin-left: 7%">张五丰</span>
+                            <span style="margin-left: 17.54%">初级</span>
+                            <span class="lidown">Done</span>
+                        </li>
+                        <li>
+                            <span style="margin-left: 7%">张六丰</span>
+                            <span style="margin-left: 17.54%">中级</span>
+                            <span class="lidown">Done</span>
+                        </li>
+                        <li>
+                        <span style="margin-left: 7%">张七丰</span>
+                        <span style="margin-left: 17.54%">中级</span>
+                        <span class="lidown">Done</span>
+                    </li>
+                        <li>
+                            <span style="margin-left: 7%">张八丰</span>
+                            <span style="margin-left: 17.54%">初级</span>
+                            <span class="lidown">Done</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="record">
+                    <ul>
+                        <!-- <li>
+                            <div class="layui-progress layui-progress-big speed" lay-showPercent="yes">
+                                <div class="layui-progress-bar layui-bg-green " lay-percent="50%" style="width: 90%;border-radius:3px "><span class="layui-progress-text">60%</span></div>
+                            </div>
+                            <span class="jiezou" onclick="ok(this)">| |</span>
+                        </li> -->
+                        <li>
+                        	<div class="aaa" style="background-color:red;width:20%;height:100%"></div>
+                        	<div class="aaa" style="background-color:black;width:20%;height:100%"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+
+/* 菜单点击的时候，改变背景颜色 */
+	function selPRO(obj) {
+      var menu = $(".menulist li")
+      for(var i=0;i<menu.length;i++)
+      {
+          if(menu[i]!=obj)
+          {
+              $(menu[i]).css('background-color','#000000')
+          }
+          else
+              $(menu[i]).css('background-color','#b7b7b7')
+      }
+  }
+	function selT(obj) {
+        var menu1 = $(".menulist1 li")
+        for(var i=0;i<menu1.length;i++)
+        {
+            if(menu1[i]!=obj)
+            {
+                $(menu1[i]).css('background-color','#000000')
+            }
+            else
+                $(menu1[i]).css('background-color','#b7b7b7')
+        }
+    } 
+/* 遍历查询项目库列表：项目库 */
+	$("#selPRO1").click(function(){
+	console.log("wo jinlaile");
+	$.ajax({
+		type:"post",
+		url:"findProject.action",
+		dataType:"json",
+		success:function(data){
+			console.log(data.length)
+			var list = "";
+			for(var i=0;i<data.length;i++){
+				list += "<tr class='detail' onclick='prolist(this)'>"+
+                "<td>"+data[i].project_time+"</td>"+
+                "<td>"+data[i].project_name+"</td>"+
+                "<td>"+data[i].stage+"</td>"+
+                "<td>"+data[i].amount+"</td>"+
+                "<td>"+data[i].dept_id+"</td>"+
+                "<td>"+data[i].product_mgr+"</td>"+
+                "<td>"+data[i].project_mgr+"</td>"+
+                "<td>"+data[i].art_mgr+"</td>"+
+                "<td>"+data[i].mode+"</td>"+
+                "<td>"+data[i].supperlier_id+"</td>"+
+                "<td>"+data[i].senior_engineer+"</td>"+
+                "<td>"+data[i].middle_engineer+"</td>"+
+                "<td>"+data[i].primary_engineer+"</td>"+
+                "<td>"+data[i].senior_engineer+"</td>"+
+                "<td>200</td>"+
+            "</tr>";
+			}
+			$("#tbody").html(list);
+		},error:function(){
+			
+		}
+	})
+})
+/* 遍历查询项目库列表：我的项目 */
+	$("#selPRO2").click(function(){
+	console.log("wo jinlaile");
+	$.ajax({
+		type:"post",
+		url:"findProject.action",
+		dataType:"json",
+		success:function(data){
+			console.log(data.length)
+			var list = "";
+			for(var i=0;i<data.length;i++){
+				list += "<tr class='detail' onclick='prolist(this)'>"+
+                "<td>"+data[i].project_time+"</td>"+
+                "<td>"+data[i].project_name+"</td>"+
+                "<td>"+data[i].stage+"</td>"+
+                "<td>"+data[i].amount+"</td>"+
+                "<td>"+data[i].dept_id+"</td>"+
+                "<td>"+data[i].product_mgr+"</td>"+
+                "<td>"+data[i].project_mgr+"</td>"+
+                "<td>"+data[i].art_mgr+"</td>"+
+                "<td>"+data[i].mode+"</td>"+
+                "<td>"+data[i].supperlier_id+"</td>"+
+                "<td>"+data[i].senior_engineer+"</td>"+
+                "<td>"+data[i].middle_engineer+"</td>"+
+                "<td>"+data[i].primary_engineer+"</td>"+
+                "<td>"+data[i].senior_engineer+"</td>"+
+                "<td>200</td>"+
+            "</tr>";
+			}
+			$("#tbody").html(list);
+		},error:function(){
+			
+		}
+	})
+})
+/* 选中项目列表行 */
+function prolist(obj){
+	var pro = $("#tbody tr");
+	for(var i=0;i<pro.length;i++){
+		if(pro[i]!=obj){
+			$(pro[i]).css("background-color","#f2f2f2");
+			$(pro[i]).css("color","#000000");
+		}else{
+			$(pro[i]).css("background-color","#262626");
+			$(pro[i]).css("color","#ffffff");
+			var td = $(pro[i]).find("td");
+			$("#add").html('<button onclick="add(\''+td.eq(1).text()+'\',\'陈经理\')"><img src="image/增加.png"></button>');
+	        $("#name").html('项目名称：<input type="text" value="'+td.eq(1).text()+'" placeholder="项目名称"/>');
+	        $("#money").html('项目预算金额：<input type="text" value="'+td.eq(3).text()+'" placeholder="项目预算金额"/>');
+	        $("#mode").html('项目执行模式：<input type="text" readonly="readonly" value="'+td.eq(8).text()+'"/>'+
+	        '<input type="text" readonly="readonly" value="'+td.eq(9).text()+'"/>'+
+	        '<input type="text" readonly="readonly" value="'+td.eq(13).text()+'"/>');
+		}
+	}
+}
+/* 增加弹出层 ,将此项目添加到我的项目中*/
+function add(projectName,project_mgr){
+	console.log(projectName+project_mgr);
+	layer.confirm('确定加入我的项目', {
+        btn: ['确认','取消'] //按钮
+        },function(){
+        	console.log("确定");
+        	$.ajax({
+        		type:"post",
+        		url:"updateProjectMgr.action",
+        		data:{
+        			"project_Mgr":project_mgr,
+        			"projectName":projectName      			
+        			},
+        		dataType:"json",
+        		success:function(data){
+        			if(data==1){
+        				alert("修改成功！");
+        				window.location.reload();
+        			}else if(data==0){
+        				alert("修改失败！");
+        			}
+        		},error:function(data){
+        			console.log("发生错误！");
+        		}
+        	});
+        },function(){
+        	console.log("取消");
+        });
+}
+/* 仪表盘中，项目透视 */
+$("#Tag-per").click(function(){
+	$(".fpmessage").css("display","none");
+    $(".downmessage1").css("display","none");
+   $(".upmessage").css("display","block");
+    $(".downmessage").css("display","block");
+})
+/* 仪表盘中，fp管理菜单 */
+$("#Tag-fp").click(function(){
+	$(".upmessage").css("display","none");
+    $(".downmessage").css("display","none");
+    $(".fpmessage").css("display","block");
+    techType();
+})
+/* ajax渲染技术类型列表 */
+function techType(){
+	console.log("comeing");
+	$.ajax({
+		type:"post",
+		url:"findAllTech.action",
+		dataType:"json",
+		success:function(data){
+			console.log(data);
+			var type="";
+			for(var i=0;i<data.length;i++){
+				type+="<li onclick='findArtByTechName("+data[i].id+",this)'>"+data[i].tech_name+"</li>"
+			}
+			$(".downmessage1 .type ul").html(type);
+		},error:function(){
+			alert("错误");
+		}
+	});
+}
+/* 根据点击的 技术类型显示出技术人员列表 */
+function findArtByTechName(tech_id,obj){
+	console.log(tech_id);	
+	/* 改变被选中的颜色 */
+	var techtype = $(".downmessage1 .type ul li")
+    for(var i=0;i<techtype.length;i++)
+    {
+        if(techtype[i]!=obj)
+        {
+            $(techtype[i]).css('background-color','rgba(12, 12, 12, 0.18)')
+            $(techtype[i]).css('color','#000000')
+        }
+        else{
+            $(techtype[i]).css('background-color','#3F3F3F')
+            $(techtype[i]).css('color','#ffffff')
+        }
+    }	
+	console.log("comeing");
+	$.ajax({
+		type:"post",
+		url:"findArtisanByTech.action",
+		data:{"tech_id":tech_id},
+		dataType:"json",
+		success:function(data){
+			console.log(data)
+			var engineer = "";
+			for(var i=0;i<data.length;i++){
+				engineer +="<li onclick='calWorkFlow("+data[i].id+",this)'><span style='margin-left: 7%'>"+data[i].art_name+"</span>"+
+                "<span style='margin-left: 17.54%'>"+data[i].art_type+"</span>"+
+                "<span class='lidown' onclick='updateArtState("+data[i].id+")'>Done</span></li>";
+			}
+			$(".downmessage1 .engineer ul").html(engineer);
+		},error:function(){
+			alert("错误");
+		}
+	});
+}
+/* 点击done后改变该工程师的是否在项目中状态 */
+ function updateArtState(art_id){
+	console.log(art_id);
+	console.log("comeing");
+	$.ajax({
+		type:"post",
+		url:"updateArtState.action",		
+		data:{"art_id":art_id},
+		dataType:"json",
+		success:function(data){
+			if(data==1){
+				alert("成功置位！")				
+			}else if(data==-1){
+				alert("置为失败！")
+			}
+		},error:function(){		
+			console.log("错误")
+		}
+	});
+} 
+/* 工作流 */
+function calWorkFlow(art_id,obj){
+	console.log("我进来了");
+	/* 改变被选中的颜色 */
+	var artN = $(".downmessage1 .engineer ul li")
+    for(var i=0;i<artN.length;i++)
+    {
+        if(artN[i]!=obj)
+        {
+            $(artN[i]).css('background-color','rgba(12, 12, 12, 0.18)')
+            $(artN[i]).css('color','#000000')
+        }
+        else{
+            $(artN[i]).css('background-color','#3F3F3F')
+            $(artN[i]).css('color','#ffffff')
+        }
+    }	
+	$.ajax({
+		type:"post",
+		url:"calWorkFlow.action",
+		data:{"art_id":art_id},
+		dataType:"json",
+		success:function(data){
+			console.log(data);
+			var workflow = "";
+			for(var i=0;i<data.length;i++){
+				workflow += /* "<li>"+
+                    "<div class='layui-progress layui-progress-big speed' lay-showPercent='yes'>"+
+                		"<div class='layui-progress-bar layui-bg-green ' lay-percent='50%' style='width: "+data[i]+"%;border-radius:3px '><span class='layui-progress-text'>"+data[i]+"h</span></div>"+
+            		"</div>"+
+            		"<span class='jiezou' onclick='ok(this)'>| |</span>"
+        		"</li>"; */"<div class='aaa' style='background-color:green;width:"+data[i]+"%;height:100%'></div>"
+			}
+			$(".downmessage1 .record ul li").html(workflow);
+		},error:function(){
+			console.log("错误");
+		}
+	});
+}
+ /* 切换开始，暂停按钮 */
+       function ok(ok){
+       console.log("wo lai le")
+       var obj = $(".jiezou");
+       console.log(obj.length)
+       for(var i=0;i<obj.length;i++){
+               if(obj[i]==ok && $(obj[i]).text("| |")){
+                   $(obj[i]).html('<i class=\"layui-icon\">&#xe623;</i>');
+                   $(obj[i]).css("background","#a2f22e");
+                    console.log(obj[i])
+               }
+               else if( obj[i]==ok && $(obj[i]).text("<i class=\'layui-icon\'>&#xe623;</i>")){
+                   $(obj[i]).html("| |");
+                   $(obj[i]).css("background","#FF0000");
+                   console.log(obj[i])
+               }
+       }
+   }
+</script>
+</html>

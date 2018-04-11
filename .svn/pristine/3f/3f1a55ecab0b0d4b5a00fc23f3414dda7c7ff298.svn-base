@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.UserAndRoleMapper">
+	<!--给用户分配角色  -->
+	<insert id="saveUserAndRole" parameterType="UserAndRole">
+		insert into userandrole (user_id,role_id) values(#{user_id},#{role_id})
+	</insert>
+	<!--删除关系  -->
+	<delete id="removeUserAndRole" parameterType="User">
+		DELETE FROM userandrole WHERE userandrole.`user_id`=#{id}
+	</delete>
+	<!-- 修改用户的关系 -->
+	<update id="updateUserAndRole" parameterType="UserAndRole">
+	UPDATE userandrole SET userandrole.`role_id`=#{role_id}
+	WHERE
+	userandrole.`user_id`=#{user_id}
+	</update>
+	<!--查询记录是否存在  -->
+	<select id="getUserAndRole" resultType="UserAndRole" parameterType="UserAndRole">
+	SELECT userandrole.`user_id`
+	FROM userandrole
+	WHERE
+	userandrole.`user_id`=#{user_id}
+	</select>
+</mapper>

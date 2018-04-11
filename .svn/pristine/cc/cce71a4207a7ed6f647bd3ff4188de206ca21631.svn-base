@@ -1,0 +1,24 @@
+/**
+ * Tech.java
+ */
+package mapper;
+
+import entity.Tech;
+
+/**
+ * @author SGY
+ * @date 2018年3月26日
+ * 技术实体类dao
+ */
+public interface TechMapper {
+	/**
+	 * 增加技术类型
+	 * @param tech
+	 */
+	public void insert(Tech tech);
+	/**
+	 * 根据id删除技术类型
+	 * @param id
+	 */
+	public void delete(int id);
+}

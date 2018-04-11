@@ -1,0 +1,62 @@
+package service.impl;
+
+import java.util.List;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import entity.Artisan;
+import entity.Supplier;
+import entity.Tech;
+import entity.TechVo;
+import mapper.ArtisanMapper;
+import mapper.SupplierMapper;
+import mapper.TechMapper;
+import service.TechService;
+
+@Service
+public class TechServiceImpl implements TechService {
+
+	@Autowired
+	private TechMapper techMapper;
+	@Autowired
+	private SupplierMapper supplierMapper;
+	@Autowired
+	private ArtisanMapper artisanMapper;
+
+	@Test
+	@Override
+	public TechVo findBySupplierAndTech() {
+		TechVo vo = new TechVo();
+
+		List<Tech> techs = techMapper.findAllTech();
+
+		List<Supplier> suppliers = supplierMapper.findAllSupplier();
+
+		vo.setSuppliers(suppliers);
+		vo.setTechs(techs);
+
+		return vo;
+	}
+
+	@Override
+	public TechVo findArtisanByTechIdAndSupIdAndCount(Artisan at) {
+		
+		TechVo vo = new TechVo();
+		int Hsenior = artisanMapper.findArtisanByTechIdAndSupIdAndCountAndHsenior(at);
+		int Hmiddle = artisanMapper.findArtisanByTechIdAndSupIdAndCountAndHmiddle(at);
+		int Hlow = artisanMapper.findArtisanByTechIdAndSupIdAndCountAndHlow(at);
+		int Ssenior = artisanMapper.findArtisanByTechIdAndSupIdAndCountAndSsenior(at);
+		int Smiddle = artisanMapper.findArtisanByTechIdAndSupIdAndCountAndSmiddle(at);
+		int Slow = artisanMapper.findArtisanByTechIdAndSupIdAndCountAndSlow(at);
+		vo.setHsenior(Hsenior);
+		vo.setHmiddle(Hmiddle);
+		vo.setHlow(Hlow);
+		vo.setSlow(Slow);
+		vo.setSmiddle(Smiddle);
+		vo.setSsenior(Ssenior);
+		return vo;
+	
+	}
+}

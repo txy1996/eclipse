@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.WorkFlowMapper">
+	<select id="findStartTime" resultType="String">
+	<!-- 查询开始时间的最近时间戳 -->
+		SELECT starttime FROM workflow where art_id = #{art_id}
+	</select>
+	<select id="findEndTime" resultType="String">
+	<!-- 查询结束时间的最近时间戳 -->
+		SELECT endtime FROM workflow art_id = #{art_id}
+	</select>
+	<!-- 保存开始时间 -->
+	<insert id="saveStartTime">
+		INSERT INTO (starttime,project_id,art_id) 
+		FROM workflow 
+		VALUES(#{starttime},#{project_id},#{art_id})
+	</insert>
+	<!-- 修改结束时间 -->
+	<update id="updateEndTime">
+		
+	</update>
+	
+	<!--开始  -->
+	<insert id="insertStratTimeAndProjectAndArt" parameterType="workFlow">
+		INSERT INTO workflow 
+		(starttime,project_id,art_id ) 
+		VALUES
+		(#{starttime},#{project_id},#{art_id});
+	</insert>
+	
+	
+	<delete id="deleteFlow" parameterType="project">
+	DELETE FROM workflow 
+	WHERE project_id = #{id}
+	</delete>
+	
+</mapper>

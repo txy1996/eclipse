@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BBS-SMS</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/sid-style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="layer/layer.js"></script>
+    <script src="layui/layui.js"></script>
+
+</head>
+<body>
+<!--主体内容显示区-->
+    <div id="main">
+        <!--头部，项目logo显示区-->
+        <div class="header">
+            <div id="logo"><img src="image/LOGO.png"></div>
+            <div id="title">
+                数联铭品软件开发资源管理系统  v1.0
+            </div>
+            <div id="login">
+                <ul class="layui-nav" lay-filter="">
+                    <li class="layui-nav-item">
+                        <a href="#">SID-吴经理</a>
+                        <dl id="navbar-sup" class="layui-nav-child"> <!-- 二级菜单 -->
+                            <dd onclick="selSecond(this)"><a href="#" onclick="iframelog()">日志信息</a></dd>
+                            <dd onclick="selSecond(this)"><a href="#" onclick="iframeedit()">信息修改</a></dd>
+                            <dd onclick="selSecond(this)"><a href="#" onclick="iframerole()">权限设置</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--上部内容显示区-->
+        <div id="content">
+            <!--菜单显示区-->
+            <div id="meau">
+                <div id="icon"><img src="image/menuicon.png" style="float: left;">主菜单</div>
+
+                <ul class="menulist">
+                    <li id="menu1" onclick="sel(this)"><a href="javascript:;">项目库</a></li>
+                    <li id="menu2" onclick="sel(this)"><a href="javascript:;" onclick="iframefp()">FP管理</a></li>
+                </ul>
+            </div>
+            <!--表格数据显示区-->
+                <!--表格列名-->
+                <div class="message">
+                    <table class="list">
+                        <thead>
+                            <tr>
+                                <th>创建时间</th>
+                                <th>项目名称</th>
+                                <th>项目阶段</th>
+                                <th>项目金额</th>
+                                <th>所属部门</th>
+                                <th>产品</th>
+                                <th>项目</th>
+                                <th>技术</th>
+                                <th>Mode</th>
+                                <th>供应商</th>
+                                <th>高</th>
+                                <th>中</th>
+                                <th>低</th>
+                                <th>总</th>
+                                <th>人天</th>
+                            </tr>
+                        </thead>
+                        <tbody class="detail">
+                        <tr class="detail">
+                            <td>2018年3月22日</td>
+                            <td>外包商</td>
+                            <td>合同流程</td>
+                            <td>36000</td>
+                            <td>技术部门</td>
+                            <td>吴经理</td>
+                            <td>唐经理</td>
+                            <td>谭经理</td>
+                            <td>FP模式</td>
+                            <td>软通动力</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>8</td>
+                            <td>100</td>
+                        </tr>
+                        <tr class="detail">
+                            <td>2018年3月22日</td>
+                            <td>外包商</td>
+                            <td>合同流程</td>
+                            <td>36000</td>
+                            <td>技术部门</td>
+                            <td>吴经理</td>
+                            <td>唐经理</td>
+                            <td>谭经理</td>
+                            <td>FP模式</td>
+                            <td>软通动力</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>8</td>
+                            <td>100</td>
+                        </tr>
+                        <tr class="detail">
+                            <td>2018年3月22日</td>
+                            <td>外包商</td>
+                            <td>合同流程</td>
+                            <td>36000</td>
+                            <td>技术部门</td>
+                            <td>吴经理</td>
+                            <td>唐经理</td>
+                            <td>谭经理</td>
+                            <td>FP模式</td>
+                            <td>软通动力</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>8</td>
+                            <td>100</td>
+                        </tr>
+                        <tr class="detail">
+                            <td>2018年3月22日</td>
+                            <td>外包商</td>
+                            <td>合同流程</td>
+                            <td>36000</td>
+                            <td>技术部门</td>
+                            <td>吴经理</td>
+                            <td>唐经理</td>
+                            <td>谭经理</td>
+                            <td>FP模式</td>
+                            <td>软通动力</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>8</td>
+                            <td>100</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+        <!--数据详情显示区-->
+        <div id="content1">
+            <div id="add">
+                <a href="#"><img src="image/增加.png"></a>
+            </div>
+            <div id="project">&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="msg">项目名称：
+                    <input type="text" value="" placeholder="项目名称"/>
+                </div>&nbsp;&nbsp;&nbsp;
+                <div class="msg">项目预算金额：
+                    ￥<input type="text" value="" placeholder="项目预算金额"/>
+                </div>&nbsp;
+                <div class="msg mode">项目执行模式：
+                    <input type="text" readonly="readonly" value=""/>
+                    <input type="text" readonly="readonly" value=""/>
+                    <input type="text" readonly="readonly" value=""/>
+                </div>
+            </div>
+        </div>
+        <!--仪表盘区域-->
+        <div id="content2">
+            <!--左部仪表盘-->
+            <div class="dashboard">
+                <div id="dash">仪表盘</div>
+                <!--<div class="menulist"><a href="#" id="pro"><i class="layui-icon" style="float: left;padding-left: 15px">&#xe63c;</i>项目透视</a></div>
+                <div class="menulist"><a href="#" id="bud"><i class="layui-icon" style="float: left;padding-left: 15px">&#xe63c;</i>预算分析</a></div>-->
+                <ul class="menulist">
+                    <li id="menu4" onclick="sel(this)"><a href="javascript:;" id="pro"><i class="layui-icon" style="float: left;padding-left: 15px">&#xe63c;</i>项目透视</a></li>
+                    <li id="menu5" onclick="sel(this)"><a href="javascript:;" id="bud"><i class="layui-icon" style="float: left;padding-left: 15px">&#xe63c;</i>预算分析</a></li>
+                </ul>
+            </div>
+            <!--上部信息分类栏-->
+            <div class="upmessage">
+                <table id="pro-tab" class="list1" style="color: white;">
+                    <thead>
+                    <tr>
+                        <th>&lt;销售合同扫描件&gt;</th>
+                        <th>&lt;PRD文档&gt;</th>
+                        <th>&lt;立项确认书&gt;</th>
+                        <th>&lt;外包商确认书&gt;</th>
+                        <th>&lt;外包合同扫描件&gt;</th>
+                        <th>&lt;项目中期验收单&gt;</th>
+                        <th>&lt;项目验收单&gt;</th>
+                        <th>&lt;服务评价表&gt;</th>
+                    </tr>
+                    </thead>
+                </table>
+
+             <table id="bud-tab" style="width: 100%;color: white;display: none">
+                  <tr style="text-align: center;height: 35px">
+                     <th style="width: 20%">&lt;工程师信息&gt;</th>
+                     <th style="width: 50%">&lt;开发流程&gt;</th>
+                    <th style="width: 5%">&lt;人天&gt;</th>
+                    <th style="width: 10%">&lt;实时结算&gt;</th>
+                    <th style="width: 10%"></th>
+                 </tr>
+            </table>
+
+            </div>
+            <!--下部信息显示栏-->
+            <div class="downmessage">
+                <div id="projectper">
+                	<form action="upload.action" method="post"  enctype="multipart/form-data">
+	                    <table style="width: 97%">
+	                        <tr>
+	                            <td><div class="down"><img src="image/增加灰.png"></div></td>
+	                            <td><div class="down"><img src="image/增加灰.png"></div></td>
+	                            <td><div class="down"><img src="image/增加灰.png"></div></td>
+	                            <td><div class="down"><button id="test1" style="background:url('image/增加.png') no-repeat;width:48px;height:48px;border:none;margin-top: 25px;"></button></div></td>
+	                            <td><div class="down"><button style="background:url('image/增加.png') no-repeat;width:48px;height:48px;border:none;margin-top: 25px;"></button></div></td>
+	                            <td><div class="down"><img src="image/增加灰.png"></div></td>
+	                            <td><div class="down"><img src="image/增加灰.png"></div></td>
+	                            <td><div class="down"><img src="image/增加灰.png"></div></td>
+	                        </tr>
+	                    </table>
+                    </form>
+                </div>
+
+                <div id="budget" style="display: none">
+                    <ul id="ul-info" >
+                        <li>
+                            <span style="margin-left: 7%">张三丰</span>
+                            <span style="margin-left: 17.54%">高级</span>
+                        </li>
+                        <li>
+                            <span style="margin-left: 7%">张四丰</span>
+                            <span style="margin-left: 17.54%">初级</span>
+                        </li>
+                        <li>
+                            <span style="margin-left: 7%">张五丰</span>
+                            <span style="margin-left: 17.54%">初级</span>
+                        </li>
+                    </ul>
+                    <ul id="ul-stream" >
+                        <li><span>11111111111111111111111111</span></li>
+                    </ul>
+                    <ul id="ul-dp" >
+                        <li><span>113</span></li>
+                    </ul>
+                    <ul id="ul-kont" >
+                        <li><span>￥11365.00</span></li>
+                    </ul>
+					<ul id="ul-export">
+						<li><span>开发人数：12</span>
+							<span>人天总计：12331</span>
+							<span>实时结算金额：￥1,340,000.001</span>
+							<span><button id="export-btn">导出为Excel</button></span>
+						</li>
+					</ul>
+				</div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+	$(function() {
+		selAllPro();
+		
+	    layui.use('upload', function(){
+	        var upload = layui.upload;
+	        
+	        //执行实例
+	        var uploadInst = upload.render({
+	        	  elem: '#id'
+	        	  ,url: '/api/upload/'
+	        	  ,auto: false //选择文件后不自动上传
+	        	  ,bindAction: '#testListAction' //指向一个按钮触发上传
+	        	  ,choose: function(obj){
+	        		  //将每次选择的文件追加到文件队列
+	        		  var files = obj.pushFile();
+	        		    
+	        		  //预读本地文件，如果是多文件，则会遍历。(不支持ie8/9)
+	        		  obj.preview(function(index, file, result){
+	        		      console.log(index); //得到文件索引
+	        		      console.log(file); //得到文件对象
+	        		      console.log(result); //得到文件base64编码，比如图片
+	        		      
+	        		    });
+	        		  }
+	        });
+	    });
+	});
+	/* 导航栏下拉列表 */
+	layui.use('element', function() {
+		var element = layui.element;
+	});
+
+	/* 导航栏点击事件*/
+	function selSecond(obj) {
+		var navbar = $('#navbar-sup dd');
+		for (var i = 0; i < navbar.length; i++) {
+			if (navbar[i] != obj) {
+				$(navbar[i]).css('background-color', '#000000');
+			} else {
+				$(navbar[i]).css('background-color', '#6E0000');
+			}
+		}
+	}
+
+	/* 菜单栏点击事件 */
+	function sel(obj) {
+		var menu = $(".menulist li")
+		for (var i = 0; i < menu.length; i++) {
+			if (menu[i] != obj) {
+				$(menu[i]).css('background-color', '#000000')
+			} else {
+				$(menu[i]).css('background-color', '#b7b7b7')
+			}
+		}
+
+	}
+
+	/* 仪表盘切换 */
+	$("#pro").click(function() {
+		$("#pro-tab").css("display", "inline-table");
+		$("#bud-tab").css("display", "none");
+		$("#projectper").css("display", "block");
+		$("#budget").css("display", "none");
+	});
+	$("#bud").click(function() {
+		$("#pro-tab").css("display", "none");
+		$("#bud-tab").css("display", "inline-table");
+		$("#projectper").css("display", "none");
+		$("#budget").css("display", "block");
+	})
+
+	/* 查询所有项目信息 */
+	function selAllPro() {
+		$.ajax({
+			url : 'searchAllProject.action',
+			type : 'post',
+			dataType : 'json',
+			success : function(data) {
+				var list = "";
+				for (var i = 0; i < data.length; i++) {
+					list += "<tr class='detail' onclick='selArtisan(this,"
+							+ data[i].id + ")'>" + "<td>"
+							+ data[i].project_time + "</td>" + "<td>"
+							+ data[i].project_name + "</td>" + "<td>"
+							+ data[i].stage + "</td>" + "<td>" + data[i].amount
+							+ "</td>" + "<td>" + data[i].dept_name + "</td>"
+							+ "<td>" + data[i].product_mgr + "</td>" + "<td>"
+							+ data[i].project_mgr + "</td>" + "<td>"
+							+ data[i].art_mgr + "</td>" + "<td>" + data[i].mode
+							+ "</td>" + "<td>" + data[i].supperlier_name
+							+ "</td>" + "<td>" + data[i].senior_engineer
+							+ "</td>" + "<td>" + data[i].middle_engineer
+							+ "</td>" + "<td>" + data[i].primary_engineer
+							+ "</td>" + "<td>" + data[i].senior_engineer
+							+ "</td>" + "<td>200</td>" + "</tr>";
+				}
+				$(".message .list .detail").html(list);
+			},
+			error : function() {
+				console.log('请求错误');
+			}
+		});
+	}
+	/* 根据项目id查询所有技术人员 */
+	function selArtisan(pro, proId) {
+		var proList = $(".message .list .detail");
+		for (var i = 0; i < proList.length; i++) {
+			if (proList[i] != pro) {
+				$(proList[i]).css({
+					'background-color' : '#F2F2F2',
+					'color' : '#7F83AC'
+				});
+			} else {
+				$(proList[i]).css({
+					'background-color' : '#000000',
+					'color' : 'white'
+				});
+			}
+		}
+		$("#bud").click(
+				function() {
+					$.ajax({
+						url : 'searchArtByProid.action',
+						type : 'post',
+						data : {
+							"proId" : proId
+						},
+						dataType : 'json',
+						success : function(data) {
+							console.log(data);
+							var artList = "";
+							var dayList = "";
+							var realList = "";
+							for (var i = 0; i < data[0].arts.length; i++) {
+								artList += "<li><span>"
+										+ data[0].arts[i].art_name
+										+ "&nbsp;&nbsp;&nbsp;"
+										+ data[0].arts[i].art_type
+										+ "</span></li>";
+								dayList += "<li><span>"+data[0].arts[i].salary+"</span></li>";
+								realList += "<li><span>￥"+data[0].arts[i].salary*200+"</span></li>";
+							}
+							$("#budget #ul-info").html(artList);
+							$("#budget #ul-dp").html(dayList);
+							$("#budget #ul-kont").html(realList);
+						},
+						error : function() {
+							console.log("请求错误");
+						}
+					});
+				});
+	}
+
+	function Artisan() {
+		console.log(0);
+	}
+	
+	/* FP资源管理弹出层 */
+	function iframefp() {
+		layer.open({
+			type : 2,
+			title : 'FP资源管理',
+			maxmin : true,
+			scrollbar : false,
+			shade : [ 0.4, '#000000' ],
+			area : [ '80%', '80%' ],
+			content : 'fp-resource.html'
+		});
+	}
+	/* 日志信息弹出层 */
+	function iframelog() {
+		layer.open({
+			type : 2,
+			title : '日志管理',
+			maxmin : true,
+			scrollbar : false,
+			shade : [ 0.4, '#000000' ],
+			area : [ '70%', '80%' ],
+			content : 'loginfo.html'
+		});
+	}
+	/* 改密弹出层 */
+	function iframeedit() {
+		layer.open({
+			type : 2,
+			title : '修改密码',
+			maxmin : true,
+			scrollbar : false,
+			shade : [ 0.4, '#000000' ],
+			area : [ '70%', '50%' ],
+			content : 'edit.html'
+		});
+	}
+	/* 权限弹出层 */
+	function iframerole() {
+		layer.open({
+			type : 2,
+			title : '权限设置',
+			maxmin : true,
+			scrollbar : false,
+			shade : [ 0.4, '#000000' ],
+			area : [ '70%', '71.65%' ],
+			content : 'Authorization.html'
+		});
+	}
+</script>
+</html>

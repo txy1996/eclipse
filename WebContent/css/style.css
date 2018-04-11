@@ -1,0 +1,204 @@
+#main{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #f2f2f2;
+    z-index: 999;
+}
+.header{
+    width:100%;
+    height: 9.23%;
+    position: relative;
+    background-color: #262626;
+    line-height: 50px;
+    z-index: 1;
+}
+#logo{
+    width: auto;
+    position: absolute;
+    left: 0px;
+}
+#title{
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    left: 40%;
+    color: white;
+    font-size: 1.5em;
+}
+/*#title:after{
+    content: "SMS(Subcontractor Managerment System)";
+    font-size: 1em;
+}*/
+#login{
+    right: 40px;
+    position: absolute;
+}
+#login a{
+    color: white;
+}
+/*上部内容显示区*/
+#content{
+    width:100%;
+    height: 43.07%;
+    position: relative;
+}
+#meau{
+    width: 10.24%;
+    height: 85.71%;
+    top:14.28%;
+    left: 3%;
+    border-radius: 6px;
+    background-color: #000000;
+    position: absolute;
+}
+#icon{
+    line-height: 45px;
+    background-color: #3F3F3F;
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+    border-radius: 6px 6px 0px 0px;
+}
+.menulist{
+    line-height: 29px;
+    /*margin-top: 5px;*/
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+}
+.menulist li{
+    margin-top: 5px;
+}
+.menulist li:hover{
+    background-color: #3F3F3F;
+}
+.menulist li a{
+    color: white;
+}
+.menulist1{
+    line-height: 29px;
+    /*margin-top: 5px;*/
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+}
+.menulist1 li{
+    margin-top: 5px;
+}
+.menulist1 li:hover{
+    background-color: #3F3F3F;
+}
+.menulist1 li a{
+    color: white;
+}
+.opened{
+    background-color: goldenrod;
+}
+.message{
+    position: absolute;
+    width: 85%;
+    line-height: 40px;
+    left: 13.91%;
+    text-align: center;
+}
+.list{
+    text-align: center;
+    /*position: fixed;*/
+    width: 82%;
+}
+.list1{
+    position: absolute;
+    text-align: center;
+    /*position: fixed;*/
+    margin-top:0.2%;
+    width: 82%;
+}
+#tbody tr:hover{
+	background-color: #262626;
+    color: white;
+}
+ .detail{
+    border:4px solid white;
+}
+/* .detail:hover{
+    background-color: #262626;
+    color: white;
+} */
+#content1{
+    width:100%;
+    height: 15.38%;
+    position: relative;
+}
+#add{
+    position: absolute;
+    top:25%;
+    left: 5.856%;
+}
+.msg{
+    float: left;
+}
+.msg input{
+    height: 30px;
+    border-radius: 6px;
+}
+.mode input{
+    width: 60px;
+}
+
+#project{
+    position: absolute;
+    line-height: 50px;
+    text-align: center;
+    width: 86%;
+    left: 13.177%;
+    top:23%;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: -8px 8px 3px #888888
+}
+#content2{
+    width:100%;
+    height: 31%;
+    position: relative;
+}
+.dashboard{
+    position: absolute;
+    width:10.25%;
+    height: 100%;
+    left: 2.93%;
+    border-radius: 6px;
+    background-color: #000000;
+}
+#dash{
+    line-height: 45px;
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+    border-radius: 6px 6px 0px 0px;
+}
+.upmessage{
+    position: absolute;
+    width: 85%;
+    height: 11.904%;
+    left: 12.445%;
+    border-radius: 6px;
+    background-color: #000000;
+}
+.downmessage{
+    position: absolute;
+    width: 85%;
+    height: 75%;
+    left: 14.64%;
+    top:15%;
+    overflow: auto;
+ }
+.down{
+    float: left;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    background-color: white;
+    margin-left: 15px;
+}

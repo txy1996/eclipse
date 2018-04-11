@@ -1,0 +1,11 @@
+package mapper;
+/**
+ * 角色权限关联表的接口类
+ * @author 晓煜
+ * @date2018年3月26日下午3:58:13
+ * @version
+ * @explain
+ */
+public interface RoleAndAuthMapper {
+
+}

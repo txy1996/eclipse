@@ -1,0 +1,61 @@
+/**
+ * Artisan.java
+ */
+package mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import entity.Artisan;
+
+/**
+ * @author SGY
+ * @date 2018年3月26日
+ * 技术人员类dao
+ */
+public interface ArtisanMapper {
+	/**
+	 * 增加技术人员
+	 * @param artisan
+	 */
+	public void insert(Artisan artisan);
+	/**
+	 * 根据id删除技术人员
+	 * @param id
+	 */
+	public void delete(int id);
+	/**
+	 * 根据供应商id和技术id查询技术人员
+	 */
+	public List<Artisan> findAllBySupAndTech(@Param(value="supid")int supid,@Param(value="techid")int techid);
+	/**
+	 * 
+	 * 根据供应商和技术查询正在工作的数量
+	 *
+	 */
+	//高级
+	public int findArtisanByTechIdAndSupIdAndCountAndHsenior(Artisan at);
+	//中级
+	public int findArtisanByTechIdAndSupIdAndCountAndHmiddle(Artisan at);
+	//低级
+	public int findArtisanByTechIdAndSupIdAndCountAndHlow(Artisan at);
+	/**
+	 * 停止工作的数量
+	 * @param at
+	 * @return
+	 */
+	//高级
+	public int findArtisanByTechIdAndSupIdAndCountAndSsenior(Artisan at);
+	//中级
+	public int findArtisanByTechIdAndSupIdAndCountAndSmiddle(Artisan at);
+	//低级
+	public int findArtisanByTechIdAndSupIdAndCountAndSlow(Artisan at);
+	//查询员工具体的状态
+	public List<Artisan> findArtisanByTechIdAndSupIdANDState(Artisan at);
+
+
+	
+	
+	
+}

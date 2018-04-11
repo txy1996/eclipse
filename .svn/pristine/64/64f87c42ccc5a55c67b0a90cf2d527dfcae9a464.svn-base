@@ -1,0 +1,66 @@
+package entity;
+/**
+ * 工作流程表实体类
+ * @WorkFlow.java
+ * @author 谭加益
+ * @time 2018年3月26日下午5:06:39
+ */
+public class WorkFlow {
+	private int id;//工作流程表id
+	private String startTime;//开始时间
+	private String endTime;//结束时间
+	private int titalTime;//时间差
+	private int project_id;//项目id
+	private int art_id;//技术人员id
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+	public String getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+	public int getTitalTime() {
+		return titalTime;
+	}
+	public void setTitalTime(int titalTime) {
+		this.titalTime = titalTime;
+	}
+	public int getProject_id() {
+		return project_id;
+	}
+	public void setProject_id(int project_id) {
+		this.project_id = project_id;
+	}
+	public int getArt_id() {
+		return art_id;
+	}
+	public void setArt_id(int art_id) {
+		this.art_id = art_id;
+	}
+	public WorkFlow(int id, String startTime, String endTime, int titalTime, int project_id, int art_id) {
+		super();
+		this.id = id;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.titalTime = titalTime;
+		this.project_id = project_id;
+		this.art_id = art_id;
+	}
+	public WorkFlow() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+}

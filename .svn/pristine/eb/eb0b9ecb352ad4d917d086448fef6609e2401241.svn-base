@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FP资源</title>
+
+    <link type="text/css" rel="stylesheet" href="css/sid-style.css">
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="layer/layer.js"></script>
+    <script src="layui/layui.js"></script>
+
+
+
+</head>
+<body style="background-color: #7F7F7F;font-family:Microsoft YaHei,微软雅黑">
+    <div id="div-fp">
+        <!-- 供应商 列表-->
+        <div id="fp">
+            <table class="fp-tab">
+                <thead><tr><th class="tab-th" colspan="2">&lt;供应商名称&gt;</th></tr></thead>
+                <tbody>
+                    <tr class="tab-tb"><td class="tab-td" onclick="selFP(this)">软通动力</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+                    <tr class="tab-tb"><td class="tab-td" onclick="selFP(this)">软通动力</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+                    <tr class="tab-tb"><td class="tab-td" onclick="selFP(this)">软通动力</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+                    <tr class="tab-tb"><td class="tab-td" onclick="selFP(this)">软通动力</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+           		</tbody>
+            </table>
+        </div>
+
+        <!-- 技术列表 -->
+        <div id="fp-skil">
+            <table class="fp-tab">
+                <thead><tr><th class="tab-th" colspan="2">&lt;技术类型&gt;</th></tr></thead>
+				<tbody>
+	                <tr class="tab-tb"><td class="tab-td" onclick="selOTM(this)">web前端</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+	                <tr class="tab-tb"><td class="tab-td" onclick="selOTM(this)">Java</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+	                <tr class="tab-tb"><td class="tab-td" onclick="selOTM(this)">IOS</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+				</tbody>
+            </table>
+        </div>
+
+        <!-- 技术人员列表 -->
+        <div id="fp-technician">
+            <table class="fp-tab">
+                <thead>
+                    <tr class="tab-th">
+                        <th>&lt;姓名&gt;</th>
+                        <th>&lt;职级&gt;</th>
+                        <th colspan="2">&lt;人天成本&gt;</th>
+                    </tr>
+                </thead>
+				<tbody>
+	                <tr class="tab-tb" onclick="selOTM(this)"><td>张三</td><td>高级</td><td>100</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+	                <tr class="tab-tb" onclick="selOTM(this)"><td>李四</td><td>高级</td><td>100</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+	                <tr class="tab-tb" onclick="selOTM(this)"><td>王五</td><td>高级</td><td>100</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+            	</tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div id="form-item">
+            <table>
+                <tr>
+                    <td><input class="text-input" type="text" name="fpname" placeholder="输入供应商名称" autocomplete="off"><a href="#" id="addfp"><img src="image/增加.png"></a></td>
+                    <td><input class="text-input" type="text" name="techname" placeholder="输入技术类型" autocomplete="off"><a href="#" id="addtech"><img src="image/增加.png"></a></td>
+                    <td><input class="text-input" type="text" name="enginner" placeholder="输入工程师姓名" autocomplete="off"></td>
+                    <td><select id="level" >
+                                <option value="0">初级工程师</option>
+                                <option value="1">中级工程师</option>
+                                <option value="2">高级工程师</option>
+                            </select>
+                        <a href="#" id="addeng"><img src="image/增加.png"></a>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- <div class="btn-item">
+
+                    <button class="layui-btn layui-btn-danger" onclick="immediately()">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">取消</button>
+            </div> -->
+
+    </div>
+
+</body>
+<script>
+	var fpobj = '';
+	var techobj = '';
+    /* 选择FP供应商 */
+    function  selFP(obj) {
+    	fpobj = obj;
+        var fps = $('#fp .fp-tab .tab-td');
+        for(var i=0;i<fps.length;i++){
+            if(fps[i]!=obj){
+               $(fps[i]).css(
+                   {'background-color':'#F2F2F2',
+                    'color': '#7F83AC'
+                   });
+            }else{
+                $(fps[i]).css(
+                    {'background-color':'#000000',
+                     'color': 'white'
+                    });
+            }
+        }
+    }
+    
+    /* 选择技术类型 */
+    function  selTech(obj) {
+    	techobj = obj;
+        var tech = $('#fp-skil .fp-tab .tab-td');
+        for(var i=0;i<tech.length;i++){
+            if(tech[i]!=obj){
+               $(tech[i]).css(
+                   {'background-color':'#F2F2F2',
+                     'color': '#7F83AC'
+                   });
+            }else{
+                $(tech[i]).css(
+                    {'background-color':'#000000',
+                        'color': 'white'
+                    });
+            }
+        }
+    }
+
+    /* 选择技术人员 */
+    function selOTM(skil){
+        var otms = $('#fp-technician .fp-tab .tab-tb');
+        for(var i=0;i<otms.length;i++){
+            if (skil == otms[i]) {
+                var co = $(otms[i]).css('color');
+                console.log(co);
+                if(co=='rgb(255, 255, 255)'){
+                    $(otms[i]).css(
+                        {'background-color':'#F2F2F2',
+                            'color': '#7F83AC'
+                        });
+                }else{
+                    $(otms[i]).css(
+                        {
+                            'background-color': '#000000',
+                            'color': 'white'
+                        });
+                }
+
+            }
+        }
+    }
+
+    /* function immediately(){
+        layer.confirm('确认修改系统配置？', {
+            btn: ['确认','取消'] //按钮
+        }, function(){
+            layer.msg('删除成功', {icon: 1});
+        });
+    } */
+    
+    /* 页面加载时刷新供应商信息 */
+    $(function(){
+    	searchAllSupp();
+    });
+    
+    /* 获取所有供应商信息 */
+    function searchAllSupp(){
+    	$.ajax({
+    		type:"post"
+    		,url:"searchAllSupp.action"
+    		,dataType:"json"
+    		,success:function(data){
+    			var fp = "";
+    			for(var i=0;i<data.length;i++){
+    				fp += "<tr class='tab-tb' onclick='searchTechBySupid("+data[i].id+")'>"+
+    							"<td class='tab-td' onclick='selFP(this)'>"+data[i].supperlier_name+"</td>"+
+    							"<td class='minsign'><a href='#' onclick='delSupTechEng(this,event,"+data[i].id+",-1,-1)'>"+
+    							"<img src='image/minsign.png'></a></td></tr>";
+    			}
+    			
+    			$("#fp .fp-tab tbody").html(fp);
+    		},error:function(){
+    			console.log("请求错误");
+    		}
+    	})
+    }
+
+    /* 根据供应商id查询技术类型 */
+    function searchTechBySupid(id){
+    	$.ajax({
+    		type:"post"
+    		,url:"searchTechBySupId.action"
+    		,data:{"supid":id}
+    		,dataType:"json"
+    		,success:function(data){
+    			var tech = "";
+    			if(data!=''){
+    				for(var i=0;i<data[0].techs.length;i++){
+        				tech += "<tr class='tab-tb' onclick='searchArtBySupidAndTech("+data[0].id+','+data[0].techs[i].id+")'>"+
+        							"<td class='tab-td' onclick='selTech(this)'>"+data[0].techs[i].tech_name+"</td>"+
+        							"<td class='minsign'><a href='#' onclick='delSupTechEng(this,event,"+data[0].id+","+data[0].techs[i].id+",-1)'>"+
+        							"<img src='image/minsign.png'></a></td></tr>";
+        			}
+    			}
+    			$("#fp-skil .fp-tab tbody").html(tech);
+    			$("#fp-technician .fp-tab tbody").html("");
+    		},error:function(){
+    			console.log("请求错误");
+    		}
+    	});
+    }
+    
+    /* 根据供应商和技术类型查询技术人员 */
+    function searchArtBySupidAndTech(supid,techid){
+    	$.ajax({
+    		type:"post"
+    		,url:"searchArtBySupidAndTech.action"
+    		,data:{"supid":supid,"techid":techid}
+    		,dataType:"json"
+    		,success:function(data){
+    			var art = "";
+    			for(var i=0;i<data.length;i++){
+    				art += "<tr class='tab-tb' onclick='selOTM(this)'>"+
+    							"<td>"+data[i].art_name+"</td>"+
+    							"<td>"+data[i].art_type+"</td>"+
+    							"<td>"+data[i].salary+"</td>"+
+    							"<td class='minsign'><a href='#' onclick='delSupTechEng(this,event,"+data[i].sup_id+','+data[i].tech_id+','+data[i].id+")'><img src='image/minsign.png'></a></td></tr>";
+    			}
+    			$("#fp-technician .fp-tab tbody").html(art);
+    		},error:function(){
+    			console.log("请求错误");
+    		}
+    	});
+    }
+    
+    /* 增加FP */
+    $("#form-item #addfp").click(function(){
+    	var fp = $("input:text[name='fpname']").val();
+    	if(fp!=''){
+    		$.ajax({
+    			type:'post'
+    			,url:'addFP.action'
+    			,data:{'fpName':fp}
+    			,dataType:'json'
+    			,success:function(data){
+    				if(data==1){
+    					$("input[name='fpname']").val("").focus();
+    					searchAllSupp();
+    				}else{
+    					layer.msg('添加失败', {icon: 1});
+    				}
+    			},error:function(){
+    				console.log('请求错误');
+    			}
+    		});
+    	}else{
+    		layer.confirm('请输入供应商名称', {
+                btn: ['确认'] //按钮
+            });
+    	}
+    });
+    
+    /* 增加技术类型 */
+    $("#form-item #addtech").click(function(){
+    	var fp = $(fpobj).text();
+    	var tech = $("input:text[name='techname']").val();
+    	if(fp!='' && tech!=''){
+    		$.ajax({
+    			type:'post'
+    			,url:'addTech.action'
+    			,data:{'fpName':fp,'techName':tech}
+    			,dataType:'json'
+    			,success:function(data){
+    				$("input[name='techname']").val("").focus();
+    				searchTechBySupid(data.sup_id);
+    			},error:function(){
+    				console.log('请求错误');
+    			}
+    		});
+    	}else if(fp==''){
+    		layer.confirm('请选择供应商', {
+                btn: ['确认'] //按钮
+            });
+    	}else if(tech==''){
+    		layer.confirm('请输入技术名称', {
+                btn: ['确认'] //按钮
+            });
+    	}
+    });
+    
+    /* 增加技术人员 */
+    $('#form-item #addeng').click(function(){
+    	var fp = $(fpobj).text();
+    	var tech = $(techobj).text();
+    	var art = $('input:text[name="enginner"]').val();
+    	var level = $("#level").find("option:selected").text();
+    	if(fp!='' && tech!='' && art!='' && level!=''){
+    		$.ajax({
+    			type:'post'
+    			,url:'addengineer.action'
+    			,data:{'fpName':fp,'techName':tech,'artName':art,'level':level}
+    			,dataType:'json'
+    			,success:function(data){
+    				$("input[name='enginner']").val("").focus();
+    				searchArtBySupidAndTech(data.sup_id,data.tech_id)
+    			},error:function(){
+    				console.log('请求错误');
+    			}
+    		});
+    	}else if(fp=='' || tech==''){
+    		layer.confirm('请选择供应商和技术类型', {
+                btn: ['确认'] //按钮
+            });
+    	}else if(art=='' || level==''){
+    		layer.confirm('请输入工程师和职级', {
+                btn: ['确认'] //按钮
+            });
+    	}
+    	
+    });
+    
+    /* 删除FP、技术类型、技术人员 */
+    function delSupTechEng(obj,event,sup_id,tech_id,id){
+    	layer.confirm('确认删除？', {
+    		  btn: ['是', '否' ]
+    		}, function(index, layero){
+    	        $(obj).parent().parent().remove();
+    		  	layer.close(index);
+    		  	$.ajax({
+    		  		type:'post'
+    		  		,url:'delEnginner.action'
+    		  		,data:{'supId':sup_id,'techId':tech_id,'id':id}
+    		  		,dataType:'json'
+    		  		,success:function(data){
+    		  			if(data==1){
+    		  				console.log('删除成功')
+    		  			}else if(data==-1){
+    		  				console.log('删除失败')
+    		  			}
+    		  		},error:function(){
+    		  			console.log('请求失败')
+    		  		}
+    		  	});
+    		}, function(index){
+    		});
+    }
+</script>
+</html>

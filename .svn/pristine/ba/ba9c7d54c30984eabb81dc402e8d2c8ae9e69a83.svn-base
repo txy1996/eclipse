@@ -1,0 +1,16 @@
+package entity;
+/**
+ * 
+ * @author 陈光辉
+ * 封装类型， 封装 技术经理用到的参数
+ * 2018年3月27日
+ */
+public class TechVo {
+	
+	private Supplier supplier ; //供应商
+	private Tech tech;    // 技术类型
+	
+	
+	
+	
+}

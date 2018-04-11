@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.SupAndTechMapper">
+	
+	<insert id="insert" parameterType="entity.SupAndTech">
+		insert into supandtech(sup_id,tech_id) values(#{sup_id},#{tech_id});
+	</insert>
+	
+	<delete id="delete" parameterType="SupAndTech">
+		delete from supandtech where 
+		<trim prefixOverrides="and">
+			<if test='sup_id!=null'>sup_id=#{sup_id}</if>
+			<if test='tech_id!=null'>and tech_id=#{tech_id}</if>
+		</trim> 
+	</delete>
+	
+	
+</mapper>

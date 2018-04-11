@@ -1,0 +1,110 @@
+/**
+ * FpMgrAction.java
+ */
+package controller;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import entity.Artisan;
+import entity.SupAndTech;
+import entity.Supplier;
+import service.FpMgrService;
+
+/**
+ * @author SGY
+ * @date 2018年3月27日
+ * 供应商管理控制层
+ */
+@Controller
+public class FpMgrAction {
+	@Resource
+	private FpMgrService fpMgrService;
+	/**
+	 * 返回所有供应商
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("searchAllSupp.action")
+	public List<Supplier> searchAllSupp(){
+		
+		return fpMgrService.searchAll();
+	}
+	/**
+	 * 根据供应商id返回所有技术类型
+	 * @param supid
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("searchTechBySupId.action")
+	public List<Supplier> searchTechBySupId(int supid){
+		return fpMgrService.searchBySupId(supid);
+	}
+	/**
+	 * 根据供应商id和技术类型id返回所有技术人员
+	 * @param supid
+	 * @param techid
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("searchArtBySupidAndTech.action")
+	public List<Artisan> searchArtBySupidAndTech(int supid,int techid){
+		return fpMgrService.searchBySupIdAndTechid(supid, techid);
+	}
+	/**
+	 * 增加供应商
+	 * @param fpName
+	 */
+	@ResponseBody
+	@RequestMapping("addFP.action")
+	public int addFP(String fpName){
+		fpMgrService.addFp(fpName);
+		return 1;
+	}
+	/**
+	 * 根据供应商增加技术类型
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("addTech.action")
+	public SupAndTech addTech(String fpName,String techName){
+		return fpMgrService.addTech(fpName,techName);
+	}
+	/**
+	 * 根据供应商、技术类型添加技术人员
+	 */
+	@ResponseBody
+	@RequestMapping("addengineer.action")
+	public Artisan addEngineer(String fpName,String techName,String artName,String level){
+		return fpMgrService.addEngin(fpName, techName, artName, level);
+	}
+	@RequestMapping("updateArtState.action")
+	public void updateArtState(String artName){
+		fpMgrService.updateArtState(artName);
+	}
+	@ResponseBody
+	@RequestMapping("findArtisanByTech.action")
+	public List<Artisan> findArtisanByTech(String tech_name){
+		System.out.println(tech_name);
+		List<Artisan> listart = fpMgrService.findArtisanByTech("web前端");		
+		return listart;
+	}
+	/**
+	 * 删除供应商相关信息
+	 */
+	@ResponseBody
+	@RequestMapping("delEnginner")
+	public int delEnginner(int supId,int techId,int id){
+		boolean flag = fpMgrService.delEngin(supId, techId, id);
+		if(flag){
+			return 1;
+		}else{
+			return -1;
+		}
+	}
+}

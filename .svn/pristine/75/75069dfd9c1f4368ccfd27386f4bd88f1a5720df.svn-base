@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.ProjectMapper">
+	<resultMap type="Project" id="prosupMap">
+		<id property="id" column="id"></id>
+		<result property="project_name" column="project_name"></result>
+		<association property="supplier" column="supplier_id" javaType="Supplier">
+			<id property="id" column="sup_id"></id>
+			<result property="supperlier_name" column="supperlier_name"/>
+		</association>
+	</resultMap>
+	
+	<!-- 根据不同角色，查询所有项目信息 -->
+	<select id="findAllProject" resultType="entity.Project" >
+		select project.id,project_name,project_time,stage,amount,dept_name,
+		product_mgr,project_mgr,art_mgr,mode,supperlier_name,senior_engineer,
+		middle_engineer,primary_engineer
+		from project,dept,supplier
+		where project.dept_id=dept.id
+		and project.supplier_id=supplier.id
+		<if test="role_id=2">and product_mgr!=''</if>
+		<if test="role_id=3">and product_mgr!='' and project_mgr!=''</if>
+	</select>
+	
+	<update id="UpdateProjectAdd" parameterType="project" >
+		UPDATE project SET MODE = 3,
+		supplier_id = #{supplier_id},
+		senior_engineer = #{senior_engineer},
+		middle_engineer = #{middle_engineer},
+		primary_engineer = #{primary_engineer} 
+		WHERE id = #{id}
+	</update>
+	
+	<select id="findById" parameterType="int" resultType="project">
+		SELECT id , MODE , supplier_id,senior_engineer ,middle_engineer ,primary_engineer FROM project WHERE id = #{id}
+	</select>
+	
+	<update id="updateSuAndAr" parameterType="project">
+		UPDATE project SET MODE = 2,
+		supplier_id = NULL,
+		senior_engineer = 0,
+		middle_engineer = 0,
+		primary_engineer = 0 
+		WHERE id = #{id}
+	</update>
+	<!-- 根据项目名称，更新项目项目经理 -->
+	<update id="updateProjectMgr">
+		update project set project_mgr=#{projectMgr} where project_name=#{projectName}
+	</update>
+</mapper>

@@ -1,0 +1,376 @@
+//分析
+//封装项目对象
+function Project() {
+	// 属性
+	this.id = '';
+	this.time = '';// 时间
+	this.name = '';// 项目名字
+	this.stage = '';// 项目阶段
+	this.amount = '';// 项目金额
+	this.dept = '';// 所属部门
+	this.product = '';// 产品经理
+	this.project = '';// 项目经理
+	this.art = '';// 技术经理
+	this.mode = '';// 模式
+	this.supplier = '';// 供应商
+	this.senior = '';// 高级人数
+	this.middle = '';// 中级人数
+	this.primary = '';// 低级人数
+	this.count = '';// 总人数
+
+}
+
+// 放方法的点击事件
+Project.prototype = {
+
+	Table : function() {
+		var str = ''
+
+		str += '<tr class="detail" onclick="fun2(this)">'
+		str += '<td>' + this.time + '</td>'
+		str += '<td>' + this.name + '</td>'
+		str += '<td>' + this.stage + '</td>'
+		str += '<td>' + this.amount + '</td>'
+		str += '<td>' + this.dept + '</td>'
+		str += '<td>' + this.product + '</td>'
+		str += '<td>' + this.project + '</td>'
+		str += '<td>' + this.art + '</td>'
+		str += '<td>' + this.mode + '</td>'
+		str += '<td>' + this.supplier + '</td>'
+		str += '<td>' + this.senior + '</td>'
+		str += '<td>' + this.middle + '</td>'
+		str += '<td>' + this.primary + '</td>'
+		str += '<td>' + this.count + '</td>'
+		str += '<input type="hidden" value="'+this.id+'"/>'
+		str += '</tr>'
+
+		return str;
+
+	},
+	theFirstclick : function() {
+
+	}
+}
+
+window.onload = function() {
+
+	/*
+	 * var projects=[
+	 * {time:'0',name:'张三',stage:'3',amount:'阿斯蒂芬',dept:'阿斯弗',product:'阿斯弗',project:'爱的色放',art:'阿斯蒂芬',mode:'sdf',supplier:'sdf',senior:'sdf',middle:'sdf',primary:'sdf',count:'sdf'},
+	 * {time:'0',name:'张三',stage:'3',amount:'阿斯蒂芬',dept:'阿斯弗',product:'阿斯弗',project:'爱的色放',art:'阿斯蒂芬',mode:'dsf',supplier:'sdf',senior:'sdf',middle:'sdf',primary:'sdf',count:'sdf'} ]
+	 */
+	// 页面一打开就加载
+	// 先制造一串假数据
+	$.ajax({
+		type : "post",
+		url : "zhiliaotang/project.action",
+		cache : true,
+		dataType : "json",
+		data : {
+			"id" : "2"
+		},
+		success : function(data) {
+			alert(data);
+			fun(data);
+
+		}
+	});
+	function fun(data) {
+
+		var str = ''
+		for (var i = 0; i < data.length; i++) {
+			var project = new Project();
+
+			project.id = data[i].id;
+			project.time = data[i].project_time;
+			project.name = data[i].project_name;
+			project.stage = data[i].stage;
+			project.amount = data[i].amount;
+			project.dept = data[i].dept_id;
+			project.product = data[i].product_mgr;
+			project.project = data[i].project_mgr;
+			project.art = data[i].art_mgr;
+			project.mode = data[i].mode;
+			project.supplier = data[i].supplier_id;
+			project.senior = data[i].senior_engineer;
+			project.middle = data[i].middle_engineer;
+			project.primary = data[i].primary_engineer;
+			project.count = data[i].senior_engineer + data[i].middle_engineer + data[i].primary_engineer;
+			
+			str += project.Table()
+		}
+
+		var pro = document.getElementById('thisfirst')
+		pro.innerHTML = str
+
+	}
+
+}
+
+function fun2(obj) {
+
+	//将项目添加下面的菜单
+	var str = ''
+		
+	str += '<input type="hidden" id="pppp" value="'+$(obj).children().eq(14).val()+'"/>'
+	str += '&nbsp;&nbsp;&nbsp;&nbsp;'
+	str += '<div class="msg">'
+	str += '项目名称： <input type="text" value="'+$(obj).children().eq(1).text()+'" placeholder="项目名称" />'
+	str += '</div>'
+	str += '&nbsp;&nbsp;&nbsp;'
+	str += '<div class="msg">'
+	str += '项目预算金额：￥ <input type="text" value="'+$(obj).children().eq(3).text()+'" placeholder="项目预算金额" />'
+	str += '</div>'
+	str += '&nbsp;&nbsp;&nbsp;'
+	str += '<div class="msg mode">'
+	str += '项目执行模式:<input type="text" readonly="readonly" value="'+$(obj).children().eq(8).text()+'" name="mode"/> '
+	str += '<input	type="text" readonly="readonly" value="'+$(obj).children().eq(9).text()+'" name="供应商"/> '
+	str += '<input type="text"	readonly="readonly" value="'+$(obj).children().eq(13).text()+'" name="总数"/>'
+	str += '</div>'
+
+	var pro = document.getElementById('project')
+	pro.innerHTML = str
+		
+	alert($(obj).children().eq(14).val())
+
+}
+
+
+//封装FT对象
+//供应商
+function Supplier(){
+	
+	this.id = '' ;
+	this.supperlier_name = '' ;
+	
+}
+
+Supplier.prototype = {
+	
+		supPlay : function(){
+			
+			var str = '';
+			str += '<input type="hidden" value="'+this.id+'"/>'
+			str +='<li onclick="findDept('+this.id+')">'+this.supperlier_name+'</li>';
+			return str;
+			
+		}
+}
+
+
+
+//封装技术对象
+function Dept(){
+	
+	this.id = '' ;
+	this.sup_id='';
+	this.dept_name = '' ;
+	this.Abbreviation = '' ;
+	
+}
+
+Dept.prototype = {
+	
+		deptPlay : function(){
+			
+			var str = '';
+			str += '<input type="hidden" value="'+this.id+'"/>'
+			str += '<input type="hidden" value="'+this.sup_id+'"/>'
+			str += '<li onclick="findCount(this)">'+this.dept_name+'</li>';
+			
+			return str;
+			
+		}
+}
+
+function findDept(id){
+	
+	
+	$.ajax({
+		type : "post",
+		url : "zhiliaotang/Tech.action",
+		cache : true,
+		dataType : "json",
+		data : {
+			"id" : id
+		},
+		success : function(data) {
+			
+			
+			alert(data);
+
+			var str = '';
+			
+			var dept  = new Dept();
+			
+			for(var i = 0 ;i<data.techs.length;i++ ){
+				
+				dept.id=data.id
+				dept.sup_id=data.techs[i].id
+				dept.dept_name=data.techs[i].tech_name
+				
+				str += dept.deptPlay();
+				
+			}
+			
+			var pro = document.getElementById('dept')
+			pro.innerHTML = str
+			
+		}
+	});
+	
+}
+
+
+
+
+
+
+//封装项目
+function ArtisanCount(){
+	
+	//正在工作的员工数
+	this.Hsenior='';
+	this.Hmiddle='';
+	this.Hlow='';
+	//未在工作的员工数
+	this.Ssenior='';
+	this.Smiddle='';
+	this.Slow='';
+	
+}
+ArtisanCount.prototype = {
+		
+		countPlay : function(){
+			var str = '';
+			
+			str +='<li><span>已分配</span> ';
+			str +='<span class="shover">'+this.Hsenior+'</span>';
+			str +='<span>'+this.Hmiddle+'</span>';
+			str +='<span>'+this.Hlow+'</span></li>';
+			str +='<li><span>未分配</span> ';
+			str +='<span>'+this.Ssenior+'</span>';
+			str +='<span>'+this.Smiddle+'</span>';
+			str +='<span>'+this.Slow+'</span></li>';
+			
+			return str;
+			
+		}
+}
+
+
+
+function findCount(obj){
+	
+	alert($("#pppp").val());
+	
+	$.ajax({
+		type : "post",
+		url : "zhiliaotang/ArtisanCount.action",
+		cache : true,
+		dataType : "json",
+		data : {
+			"tech_id": $(obj).parent().children().eq(0).val(),"sup_id":$(obj).parent().children().eq(1).val(),"project_id":$("#pppp").val()
+		},
+		success : function(data) {
+			
+			alert(data);
+
+			var str = '';
+			
+			var artisanCount  = new ArtisanCount();
+			
+			artisanCount.Hsenior = data.Hsenior
+			artisanCount.Hmiddle = data.Hmiddle
+			artisanCount.Hlow = data.Hlow
+			artisanCount.Ssenior = data.Ssenior
+			artisanCount.Smiddle = data.Smiddle
+			artisanCount.Slow = data.Slow
+				
+				
+				str += artisanCount.countPlay();
+				
+			
+			var pro = document.getElementById('dept')
+			pro.innerHTML = str
+			
+		}
+	});
+	
+	
+	
+	
+}
+
+
+
+
+
+//技术人员
+function Artisan(){
+	
+	this.id = '' ;
+	this.art_name = '' ;
+	this.art_type = '' ;
+	this.tech_id = '' ;
+	this.salary = '' ;
+	this.state = '' ;
+	this.sup_id = '' ;
+	this.project_id = '' ;
+	
+}
+
+Artisan.prototype = {
+	
+		artisanPlay : function(){
+			
+			var str = '';
+			str +='<div class="left1" >';
+			str +='<ul>';
+			str +='<li><img src="${pageContext.request.contextPath }/image/00.png"';
+			str +='width="20px" height="20px"></li>';
+			str +='<li><img src="${pageContext.request.contextPath }/image/--.png"';
+			str +='width="20px" height="20px"></li>';
+			str +='<li><img src="${pageContext.request.contextPath }/image/red.png"';
+			str +='width="20px" height="20px"></li>';
+			str +='</ul>';
+			str +='</div>';
+			str +='<ul>';
+			str +='<li><span>张三</span> <span>高级</span></li>';
+			str +='</ul>';
+		
+			return str;
+			
+		}
+}
+//FP总计
+function TechCount(){
+	
+	this. project = '' ;
+	this.tech_name = '' ;
+	this.typeCount = '' ;
+	this.count = '' ;
+	
+}
+
+TechCount.prototype = {
+	
+		techPlay : function(){
+			var str = '';
+			
+			str +='<li><span>FP模式:</span> <span>软通动力</span></li>';
+			str +='<li><span>web前端:</span> <span>2</span></li>';
+			str +='<li><span>APP（IOS）:</span> <span>4</span></li>';
+			str +='<li><span>APP（Android）:</span> <span>4</span></li>';
+			str +='<li>';
+			str +='<hr style="height: 1px; border: none; border-top: 1px solid #555555;" />';
+			str +='</li>';
+			str +='<li><span>总计:</span> <span>10</span></li>';
+			
+			return str;
+			
+		}
+
+}
+
+

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.ArtisanMapper">
+	
+	<select id="findAllBySupAndTech" resultType="Artisan">
+		select id,art_name,art_type,salary,sup_id,tech_id from artisan where sup_id=#{supid} and tech_id=#{techid}
+	</select>
+	
+	<insert id="insert" parameterType="entity.Artisan">
+		insert into
+		artisan(art_name,art_type,tech_id,salary,sup_id)
+		values(#{art_name},#{art_type},#{tech_id},#{salary},#{sup_id});
+	</insert>
+
+	<delete id="delete" parameterType="Artisan">
+		delete from artisan where 
+		<trim prefixOverrides='and'>
+			<if test='id!=null'>id=#{id}</if>
+			<if test='sup_id!=null'>and sup_id=#{sup_id}</if>
+			<if test='tech_id!=null'>and tech_id=#{tech_id}</if>
+		</trim>
+	</delete>
+
+	<!-- 高级数 -->
+	<select id="findArtisanByTechIdAndSupIdAndCountAndHsenior"
+		parameterType="artisan" resultType="int">
+		SELECT COUNT(1) FROM artisan WHERE state = 1 AND sup_id = #{sup_id} AND project_id = #{project_id} AND
+		tech_id = #{tech_id} AND art_type = '高级'
+	</select>
+	<!-- 中级数 -->
+	<select id="findArtisanByTechIdAndSupIdAndCountAndHmiddle"
+		parameterType="artisan" resultType="int">
+		SELECT COUNT(1) FROM artisan WHERE
+		state = 1 AND sup_id = #{sup_id} AND tech_id = #{tech_id} AND project_id = #{project_id}
+		AND art_type
+		= '中级'
+	</select>
+	<!-- 低级数 -->
+	<select id="findArtisanByTechIdAndSupIdAndCountAndHlow"
+		parameterType="artisan" resultType="int">
+		SELECT COUNT(1) FROM artisan WHERE
+		state = 1 AND sup_id = #{sup_id} AND tech_id = #{tech_id} AND project_id = #{project_id}
+		AND art_type
+		= '初级'
+	</select>
+	<!-- 高级数 -->
+	<select id="findArtisanByTechIdAndSupIdAndCountAndSsenior"
+		parameterType="artisan" resultType="int">
+		SELECT COUNT(1) FROM artisan WHERE state = 0 AND project_id = #{project_id}
+		AND sup_id = #{sup_id} AND
+		tech_id = #{tech_id} AND art_type = '高级'
+	</select>
+	<!-- 中级数 -->
+	<select id="findArtisanByTechIdAndSupIdAndCountAndSmiddle"
+		parameterType="artisan" resultType="int">
+		SELECT COUNT(1) FROM artisan WHERE state = 0 AND project_id = #{project_id}
+		AND sup_id = #{sup_id} AND
+		tech_id = #{tech_id} AND art_type = '中级'
+	</select>
+	<!-- 低级数 -->
+	<select id="findArtisanByTechIdAndSupIdAndCountAndSlow"
+		parameterType="artisan" resultType="int">
+		SELECT COUNT(1) FROM artisan WHERE state = 0 AND project_id = #{project_id}
+		AND sup_id = #{sup_id} AND
+		tech_id = #{tech_id} AND art_type = '初级'
+	</select>
+	<!-- 查询具体的员工 -->
+	<select id="findArtisanByTechIdAndSupIdANDState" parameterType="artisan" resultType="artisan">
+	SELECT * FROM artisan 
+	WHERE state = #{state}
+	AND sup_id = #{sup_id} 
+	AND tech_id = #{tech_id}
+	</select>
+	
+	<select id="findById" parameterType="artisan" resultType="artisan">
+	SELECT * FROM artisan where id = #{id}
+	</select>
+	
+	<update id="updateById" parameterType="artisan">
+	UPDATE artisan 
+	<set>
+	tech_id = #{tech_id},
+	state = #{state},
+	sup_id = #{sup_id},
+	project_id = #{project_id}
+	</set>
+	WHERE id = #{id}
+	</update>
+	
+	<select id="findTechAndArVo" parameterType="project" resultType="TechAndArVo" >
+	SELECT t.tech_name , COUNT(*)AS COUNT 
+	FROM artisan AT 
+	INNER JOIN tech t  
+	ON at.tech_id = t.id
+	WHERE project_id = #{id}
+	GROUP BY t.tech_name
+	</select>
+	
+	<select id="findCount" parameterType="project" resultType="int">
+	
+	SELECT  COUNT(*)AS COUNT 
+	FROM artisan 
+	WHERE project_id = #{id}
+	
+	</select>
+	
+	<update id="updateByPrId" parameterType="project">
+	UPDATE artisan 
+	SET
+	state = 0,
+	project_id = NULL
+	WHERE project_id = #{id}
+	</update>
+	<!-- 根据技术人员名称更改状态 -->
+	<update id="updateArtState">
+		update artisan set state = 0 where id=#{art_id}
+	</update>
+	<!-- 根据技术类型返回相关技术人员列表 -->
+	<select id="findArtisanByTech" resultType="Artisan">
+		SELECT DISTINCT art_name,art_type,id FROM artisan WHERE tech_id = #{tech_id} AND state=1
+	</select>
+	<!-- 根据项目名称查询所做该项目的技术人员 -->
+	<select id="findArtByProjectName" resultType="Artisan">
+		SELECT DISTINCT art_name,art_type,id 
+		FROM artisan 
+		WHERE project_id=(
+		SELECT id 
+		FROM project 
+		WHERE project_name=#{projectName} and state=1)
+	</select>
+</mapper>

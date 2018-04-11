@@ -1,0 +1,152 @@
+package entity;
+
+import java.util.List;
+
+/**
+ * 
+ * @author 陈光辉 封装类型， 封装 技术经理用到的参数 2018年3月27日
+ */
+public class TechVo {
+
+	private List<Supplier> suppliers; // 供应商
+	private List<Tech> techs; // 技术类型
+	/**
+	 * 正在工作的员工数
+	 */
+	private int Hsenior = 0;
+	private int Hmiddle = 0;
+	private int Hlow = 0;
+	/**
+	 * 未在工作的员工数
+	 */
+	private int Ssenior = 0;
+	private int Smiddle = 0;
+	private int Slow = 0;
+	/**
+	 * 技术人员
+	 */
+	private Artisan artisan; 
+	/**
+	 * 项目
+	 */
+	private Project project;
+	/**
+	 * 供应商
+	 */
+	private Supplier supplier;
+	/**
+	 * 技术表
+	 */
+	private Tech  tech;
+	/**
+	 * 工作流
+	 */
+	private WorkFlow workFlow;
+	/**
+	 * 项目里面技术和人对应的表
+	 * @return
+	 */
+	private List<TechAndArVo> techAndArVos;
+	/**
+	 * 总计
+	 * @return
+	 */
+	private int count ;
+	
+	
+	
+	public List<Supplier> getSuppliers() {
+		return suppliers;
+	}
+	public void setSuppliers(List<Supplier> suppliers) {
+		this.suppliers = suppliers;
+	}
+	public List<Tech> getTechs() {
+		return techs;
+	}
+	public void setTechs(List<Tech> techs) {
+		this.techs = techs;
+	}
+	public int getHsenior() {
+		return Hsenior;
+	}
+	public void setHsenior(int hsenior) {
+		Hsenior = hsenior;
+	}
+	public int getHmiddle() {
+		return Hmiddle;
+	}
+	public void setHmiddle(int hmiddle) {
+		Hmiddle = hmiddle;
+	}
+	public int getHlow() {
+		return Hlow;
+	}
+	public void setHlow(int hlow) {
+		Hlow = hlow;
+	}
+	public int getSsenior() {
+		return Ssenior;
+	}
+	public void setSsenior(int ssenior) {
+		Ssenior = ssenior;
+	}
+	public int getSmiddle() {
+		return Smiddle;
+	}
+	public void setSmiddle(int smiddle) {
+		Smiddle = smiddle;
+	}
+	public int getSlow() {
+		return Slow;
+	}
+	public void setSlow(int slow) {
+		Slow = slow;
+	}
+	public Artisan getArtisan() {
+		return artisan;
+	}
+	public void setArtisan(Artisan artisan) {
+		this.artisan = artisan;
+	}
+	public Project getProject() {
+		return project;
+	}
+	public void setProject(Project project) {
+		this.project = project;
+	}
+	public Supplier getSupplier() {
+		return supplier;
+	}
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+	public Tech getTech() {
+		return tech;
+	}
+	public void setTech(Tech tech) {
+		this.tech = tech;
+	}
+	public WorkFlow getWorkFlow() {
+		return workFlow;
+	}
+	public void setWorkFlow(WorkFlow workFlow) {
+		this.workFlow = workFlow;
+	}
+	public List<TechAndArVo> getTechAndArVos() {
+		return techAndArVos;
+	}
+	public void setTechAndArVos(List<TechAndArVo> techAndArVos) {
+		this.techAndArVos = techAndArVos;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
+	
+	
+	
+	
+}

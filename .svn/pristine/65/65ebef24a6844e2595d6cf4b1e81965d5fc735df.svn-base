@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日志信息</title>
+    <link type="text/css" rel="stylesheet" href="css/sid-style.css">
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="layer/layer.js"></script>
+    <script src="layui/layui.js"></script>
+    <script src="js/sidmgr-sgy.js"></script>
+</head>
+<body style="background-color: #7F7F7F">
+    <div id="log-info">
+        <table id="log-table">
+        	<thead>
+	            <tr id="tab-head">
+	                <td>&lt;登录用户名称&gt;</td>
+	                <td>&lt;用户角色&gt;</td>
+	                <td>&lt;登录时间&gt;</td>
+	                <td>&lt;操作项目&gt;</td>
+	                <td>&lt;操作名称&gt;</td>
+	            </tr>
+            </thead>
+            <tbody>
+	            <tr class="tab-content">
+	                <td>&lt;张三&gt;</td>
+	                <td>&lt;技术经理&gt;</td>
+	                <td>&lt;2018-3-22&gt;</td>
+	                <td>&lt;BBD&gt;</td>
+	                <td>&lt;新增&gt;</td>
+	            </tr>
+	            <tr class="tab-content">
+	                <td>&lt;张三&gt;</td>
+	                <td>&lt;技术经理&gt;</td>
+	                <td>&lt;2018-3-22&gt;</td>
+	                <td>&lt;BBD&gt;</td>
+	                <td>&lt;新增&gt;</td>
+	            </tr>
+            </tbody>
+        </table>
+    </div>
+<!-- 下拉列表 -->
+    <div id="search-select">
+        <table>
+            <tr>
+                <td>
+                    <select id="pro-select" lay-verify="required">
+                        <option value="">按项目选择查看</option>
+                        <option value="0">FP</option>
+                        <option value="1">OTM</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="role-select" lay-verify="required">
+                        <option value="">按用户选择查看</option>
+                        <option value="0">产品经理</option>
+                        <option value="1">上海</option>
+                        <option value="2">广州</option>
+                        <option value="3">深圳</option>
+                        <option value="4">杭州</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="time-select" lay-verify="required">
+                        <option value="">按时间选择查看</option>
+                        <option value="0">一天内</option>
+                        <option value="1">一周内</option>
+                        <option value="2">一个月内</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+<!-- 提交按钮 -->
+    <div class="btn-item">
+        <button class="layui-btn layui-btn-danger" onclick="immediately()">立即提交</button>
+        <button type="reset" class="layui-btn layui-btn-primary">取消</button>
+    </div>
+</body>
+</html>

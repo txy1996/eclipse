@@ -1,0 +1,57 @@
+/**
+ * FpMgrServiceImpl.java
+ */
+package service.impl;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
+
+import entity.Artisan;
+import entity.SupAndTech;
+import entity.Supplier;
+import mapper.ArtisanMapper;
+import mapper.SupAndTechMapper;
+import mapper.SupplierMapper;
+import service.FpMgrService;
+
+/**
+ * @author SGY
+ * @date 2018年3月27日
+ */
+@Service("fpMgrService")
+public class FpMgrServiceImpl implements FpMgrService {
+	@Resource
+	private SupplierMapper supMapper;
+	@Resource
+	private ArtisanMapper artMapper;
+
+	/* (non-Javadoc)
+	 * @see service.FpMgrService#searchAll()
+	 */
+	@Override
+	public List<Supplier> searchAll() {
+		return supMapper.findAllSupplier();
+	}
+
+	/* (non-Javadoc)
+	 * @see service.FpMgrService#searchBySupId(int)
+	 */
+	@Override
+	public List<Supplier> searchBySupId(int supId) {
+		return supMapper.findBySupid(supId);
+	}
+
+	/* (non-Javadoc)
+	 * @see service.FpMgrService#searchBySupIdAndTechid(int, int)
+	 */
+	@Override
+	public List<Artisan> searchBySupIdAndTechid(int supId, int techId) {
+		return artMapper.findAllBySupAndTech(supId, techId);
+	}
+
+}

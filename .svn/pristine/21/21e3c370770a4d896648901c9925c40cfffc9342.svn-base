@@ -1,0 +1,314 @@
+/*.fplist{
+	position: absolute;
+	float: left;
+    width: 30%;
+    height: 175px;
+    left: 225px;
+    background-color: white;
+}*/
+#li1{
+	text-align: center;
+	width:21%;
+	color: white;
+	font-weight:bold;
+}
+#li7{
+	text-align: center;
+	width:14%;
+	color: white;
+	font-weight:bold;
+}
+#li2{
+	text-align: center;
+	width:6%;
+	color: white;
+	font-weight:bold;
+}
+#li3{
+	text-align: center;
+	width:6%;
+	color: white;
+	font-weight:bold;
+}
+#li4{
+	text-align: center;
+	width:6%;
+	color: white;
+	font-weight:bold;
+}
+#li8{
+	text-align: center;
+	width:9%;
+	color: white;
+	font-weight:bold;
+}
+#li9{
+	text-align: center;
+	width:20%;
+	color: white;
+	font-weight:bold;
+}
+#li5{
+	text-align: center;
+	width:17%;
+	color: white;
+	font-weight:bold;
+	
+}
+#li6{
+	text-align: center;
+	width:17%;
+	color: white;
+	font-weight:bold;
+}
+.list3{
+    position: fixed;
+    width: 80%;
+}
+.fpupmessage li{
+float: left;	
+color: white;
+}
+.downmessage1{
+    position: absolute;
+    width: 85%;
+    height: 64.286%;
+    left: 13.64%;
+    top:15.81%;
+ }
+ 
+.down1{
+	position: absolute;
+	float: left;
+    width: 17.5%;
+    height: 175px;
+    left: 6px;
+    background-color: white;
+    overflow: auto;
+}
+.down1::-webkit-scrollbar {/*滚动条整体样式*/
+        width: 5px;     /*高宽分别对应横竖滚动条的尺寸*/
+        height: 1px;
+    }
+.down1::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+        border-radius: 10px;
+         -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        background:#a6a6a6;
+    }
+.down1::-webkit-scrollbar-track {/*滚动条里面轨道*/
+        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        border-radius: 10px;
+        background: #EDEDED;
+    }
+
+
+.down1 ul{
+	margin-top: 8px;
+    width: 170px;
+    margin-left: 8px;
+    border-radius: 8px;
+    text-align: center;
+}
+.down1 ul li{
+	height: 22px;
+    margin-top: 5px;
+    border-radius: 8px;
+    background-color: rgba(12, 12, 12, 0.18);
+}
+.down1 ul li:hover{
+	background-color: #3F3F3F;
+}
+
+.downj{
+	position: absolute;
+	float: left;
+    width: 17.5%;
+    height: 175px;
+    left: 18.5%;
+    background-color: white;
+    overflow: auto;
+}
+.downj::-webkit-scrollbar {/*滚动条整体样式*/
+        width: 5px;     /*高宽分别对应横竖滚动条的尺寸*/
+        height: 1px;
+    }
+.downj::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+        border-radius: 10px;
+         -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        background:#a6a6a6;
+    }
+.downj::-webkit-scrollbar-track {/*滚动条里面轨道*/
+        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        border-radius: 10px;
+        background: #EDEDED;
+    }
+
+
+.downj ul{
+	margin-top: 8px;
+    width: 170px;
+    margin-left: 8px;
+    border-radius: 8px;
+    text-align: center;
+}
+.downj ul li{
+	height: 22px;
+    margin-top: 5px;
+    border-radius: 8px;
+    background-color: rgba(12, 12, 12, 0.18);
+}
+.downj ul li:hover{
+	background-color: #3F3F3F;
+}
+.down3{
+	position: absolute;
+	float: left;
+    width: 20%;
+    height: 175px;
+    left: 36.32%;
+    background-color: white;
+}
+.down3 ul{
+ margin-top: 10px;
+
+}
+.down3 ul li{
+	height: 22px;
+    margin-top: 5px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+	background-color: rgba(12, 12, 12, 0.18);
+}
+
+.down3 ul li span{
+	line-height:20px;
+	width:24%;
+	display: block;
+	text-align:center;
+	float: left;
+}
+
+.down2{
+	position:absolute;
+	float: left;
+    width: 20%;
+    height: 170px;
+    left: 56.5%;
+    background-color:white;
+    overflow: auto;
+}
+.down2 ul{
+	
+	margin-top:10px;
+    width:70%;
+    margin-left:10px;
+    border-radius:8px;
+    text-align:center;
+    
+}
+.down2 ul li{
+
+	height: 23px;
+    margin-top: 5px;
+    border-radius: 1px;
+    background-color:#f1efef;
+    
+}
+.down2 ul li span{
+	color: #737272;
+	line-height:20px;
+	width: 45%;
+	display: block;
+	text-align: center;
+	float: left;
+}
+
+.down2::-webkit-scrollbar {/*滚动条整体样式*/
+        width: 5px;     /*高宽分别对应横竖滚动条的尺寸*/
+        height: 1px;
+    }
+.down2::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+        border-radius: 10px;
+         -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        background:#a6a6a6;
+    }
+.down2::-webkit-scrollbar-track {/*滚动条里面轨道*/
+        -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        border-radius: 10px;
+        background: #EDEDED;
+    }
+.left1{
+	float:right;
+	width: 30%;
+}    
+.left1 ul li img{
+	border-radius: 6px;
+	line-height:20px;
+	/*text-align: center;*/
+	box-shadow:3px 3px 6px 1px #636363;;
+} 
+.left1 ul li {
+	background-color: inherit;
+}
+
+.down4{
+	position: absolute;
+	float: left;
+    width: 25%;
+    height: 175px;
+    left: 77%;
+    background-color: white;
+}
+.down4 ul li{
+	height:17px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.moshi{
+	position: absolute;
+	line-height: 60px;
+	float: left;
+	top:65%;
+	left:7%;
+}
+.moshi img{
+	left: 10px;
+	border-radius: 20px;
+	box-shadow:3px 3px 6px 1px #636363;;
+}
+.down5{
+    width: 100px;
+}
+.down6{
+	position: absolute;
+	float: left;
+    width: 38%;
+    height: 175px;
+    left: 18.5%;
+    background-color: white;
+}
+.down6 ul{
+ margin-top: 10px;
+
+}
+.down6 ul li{
+	height: 22px;
+    margin-top: 5px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+	background-color: rgba(12, 12, 12, 0.18);
+}
+
+.down6 ul li span{
+	line-height:20px;
+	width:24%;
+	display: block;
+	text-align:center;
+	float: left;
+}

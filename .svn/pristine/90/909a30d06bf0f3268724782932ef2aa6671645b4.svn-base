@@ -1,0 +1,32 @@
+package controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import entity.Project;
+import service.ProjectService;
+
+@Controller
+public class ProjectController {
+	@Autowired
+	public ProjectService projectService;
+	@ResponseBody
+	@RequestMapping("findProject.action")
+	public List<Project> findProject(){
+		return projectService.findProject(2);
+	}
+	@RequestMapping("updateProjectMgr.action")
+	public int updateProjectMgr(String projectName,String project_Mgr){
+		boolean flag = projectService.updateProjectMgr(projectName, project_Mgr);
+		if(flag==true){
+			return 1;
+		}else{
+			return 0;
+		}
+		
+	}
+}

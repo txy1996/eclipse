@@ -1,0 +1,135 @@
+package entity;
+
+/**
+ * 用户表
+ * 
+ * @author 晓煜
+ * @date2018年3月26日下午3:19:52
+ * @version
+ * @explain
+ */
+public class User {
+	private int id;
+	private String username;
+	private String password;
+	private int dept_id;
+	private String realname;
+	private int locked;
+	private Dept dept;
+	private Role role;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public int getDept_id() {
+		return dept_id;
+	}
+
+	public void setDept_id(int dept_id) {
+		this.dept_id = dept_id;
+	}
+
+	public String getRealname() {
+		return realname;
+	}
+
+	public void setRealname(String realname) {
+		this.realname = realname;
+	}
+
+	public int getLocked() {
+		return locked;
+	}
+
+	public void setLocked(int locked) {
+		this.locked = locked;
+	}
+	
+	public Dept getDept() {
+		return dept;
+	}
+
+	public void setDept(Dept dept) {
+		this.dept = dept;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	/**
+	 * 
+	 * @param id
+	 *            用户id主键
+	 * @param username
+	 *            用户登陆名
+	 * @param password
+	 *            用户密码
+	 * @param detp_id
+	 *            部门id外键
+	 * @param realname
+	 *            用户姓名
+	 * @param locked
+	 *            账号是否锁定，1：锁定 0：未锁定
+	 */
+	public User(int id, String username, String password, int dept_id, String realname, int locked) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.dept_id = dept_id;
+		this.realname = realname;
+		this.locked = locked;
+	}
+
+	public User(int id, String username, String password, int dept_id, String realname, int locked, Dept dept,
+			Role role) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.dept_id = dept_id;
+		this.realname = realname;
+		this.locked = locked;
+		this.dept = dept;
+		this.role = role;
+	}
+
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", dept_id=" + dept_id
+				+ ", realname=" + realname + ", locked=" + locked + ", dept=" + dept + ", role=" + role + "]";
+	}
+	
+
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.RoleMapper">
+	<resultMap type="Role" id="RoleMap">
+		<id property="id" column="roleid"></id>
+		
+		<result property="role_name" column="role_name"></result>
+		 <collection property="auths" ofType="Auth">
+        <id property="id" column="authid"/>
+        <result property="auth_name" column="auth_name"/>
+     </collection>
+	</resultMap>
+	<!-- 添加角色 -->
+	<insert id="saveRole" parameterType="entity.Role">
+		INSERT INTO role (role.`role_name`) VALUES(#{role_name})
+	</insert>
+	<!--删除角色 -->
+	<delete id="removeRole" parameterType="entity.Role">
+		delete from role where role.`id`=#{id}  and role.`available`=0
+	</delete>
+	<select id="listRole" resultType="entity.Role">
+		select role.`role_name`,role.`available`,role.`id` from role
+	</select>
+</mapper>

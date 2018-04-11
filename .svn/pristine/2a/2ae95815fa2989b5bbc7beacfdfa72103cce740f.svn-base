@@ -1,0 +1,167 @@
+/**
+ * FpMgrServiceImpl.java
+ */
+package service.impl;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
+
+import entity.Artisan;
+import entity.SupAndTech;
+import entity.Supplier;
+import entity.Tech;
+import mapper.ArtisanMapper;
+import mapper.SupAndTechMapper;
+import mapper.SupplierMapper;
+import mapper.TechMapper;
+import service.FpMgrService;
+
+/**
+ * @author SGY
+ * @date 2018年3月27日
+ */
+@Service("fpMgrService")
+public class FpMgrServiceImpl implements FpMgrService {
+	@Resource
+	private SupplierMapper supMapper;
+	@Resource
+	private ArtisanMapper artMapper;
+	@Resource
+	private TechMapper techMapper;
+	@Resource
+	private SupAndTechMapper satMapper;
+
+	/* (non-Javadoc)
+	 * @see service.FpMgrService#searchAll()
+	 */
+	@Override
+	public List<Supplier> searchAll() {
+		return supMapper.selectAll();
+	}
+
+	/* (non-Javadoc)
+	 * @see service.FpMgrService#searchBySupId(int)
+	 */
+	@Override
+	public List<Supplier> searchBySupId(int supId) {
+		return supMapper.findBySupid(supId);
+	}
+
+	/* (non-Javadoc)
+	 * @see service.FpMgrService#searchBySupIdAndTechid(int, int)
+	 */
+	@Override
+	public List<Artisan> searchBySupIdAndTechid(int supId, int techId) {
+		return artMapper.findAllBySupAndTech(supId, techId);
+	}
+
+	/* (non-Javadoc)
+	 * @see service.FpMgrService#addFp(java.lang.String)
+	 */
+	@Override
+	public void addFp(String fp) {
+		Supplier sup = new Supplier();
+		sup.setSupperlier_name(fp);
+		supMapper.insert(sup);
+	}
+
+	/* (non-Javadoc)
+	 * @see service.FpMgrService#addTech(java.lang.String)
+	 */
+	@Override
+	public SupAndTech addTech(String fp,String tech) {
+		//判断有无此技术
+		Tech t = null;
+		t = techMapper.findByName(tech);
+		if(t==null){
+			t = new Tech();
+			//增加技术类型
+			t.setTech_name(tech);
+			techMapper.insert(t);
+			//获取技术类型id
+			t = techMapper.findByName(t.getTech_name());
+		}
+		//获取供应商id
+		Supplier supplier = new Supplier();
+		supplier = supMapper.findBySupname(fp);
+		//将技术类型添加到供应商
+		SupAndTech sat = new SupAndTech();
+		sat.setSup_id(supplier.getId());
+		sat.setTech_id(t.getId());
+		satMapper.insert(sat);
+		return sat;
+	}
+
+	/* (non-Javadoc)
+	 * @see service.FpMgrService#addEngin(java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+	 */
+	@Override
+	public Artisan addEngin(String fp, String tech, String art, String level) {
+		//获取供应商id
+		Supplier supplier = new Supplier();
+		supplier = supMapper.findBySupname(fp);
+		//获取技术类型id
+		Tech t = new Tech();
+		t = techMapper.findByName(tech);
+		//增加技术人员
+		Artisan artisan = new Artisan();
+		artisan.setArt_name(art);
+		artisan.setArt_type(level);
+		artisan.setSalary(100);
+		artisan.setSup_id(supplier.getId());
+		artisan.setTech_id(t.getId());
+		artMapper.insert(artisan);
+		return artisan;
+	}
+	@Override
+	public void updateArtState(String artName) {
+		artMapper.updateArtState(artName);
+	}
+
+	@Override
+	public List<Artisan> findArtisanByTech(String tech_name) {
+		return artMapper.findArtisanByTech(tech_name);
+	}
+
+	/* (non-Javadoc)
+	 * @see service.FpMgrService#delEngin(int, int, int)
+	 */
+	@Override
+	public boolean delEngin(int supId, int techId, int id) {
+		if(supId>0 && techId>0 && id>0){//删除技术人员
+			Artisan artisan = new Artisan();
+			artisan.setId(id);
+			artisan.setSup_id(supId);
+			artisan.setTech_id(techId);
+			artMapper.delete(artisan);
+		}else if(supId>0 && techId>0 && id==-1){//删除供应商和技术类型关系
+			SupAndTech sat = new SupAndTech();
+			sat.setSup_id(supId);
+			sat.setTech_id(techId);
+			satMapper.delete(sat);
+			Artisan artisan = new Artisan();
+			artisan.setSup_id(supId);
+			artisan.setTech_id(techId);
+			artMapper.delete(artisan);
+		}else if(supId>0 && techId==-1 && id==-1){//删除供应商
+			//删除该供应商旗下所有技术人员
+			Artisan artisan = new Artisan();
+			artisan.setSup_id(supId);
+			artMapper.delete(artisan);
+			//删除供应商和技术类型关系
+			SupAndTech sat = new SupAndTech();
+			sat.setTech_id(supId);
+			satMapper.delete(sat);
+			//删除供应商
+			supMapper.delete(supId);
+		}else{
+			return false;
+		}
+		return true;	
+	}
+}

@@ -1,0 +1,56 @@
+package entity;
+
+/**
+ * 
+ * @author 文件表 陈光辉
+ * @date2018年3月26日下午3:25:38
+ */
+public class File {
+
+	private int id;// 文件表ID
+	private String file_name;// 文件名称
+	private String file_type;// 文件类型
+	private String upload_role;// 上传角色
+	private String project_id;// 项目id，外键
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getFile_name() {
+		return file_name;
+	}
+
+	public void setFile_name(String file_name) {
+		this.file_name = file_name;
+	}
+
+	public String getFile_type() {
+		return file_type;
+	}
+
+	public void setFile_type(String file_type) {
+		this.file_type = file_type;
+	}
+
+	public String getUpload_role() {
+		return upload_role;
+	}
+
+	public void setUpload_role(String upload_role) {
+		this.upload_role = upload_role;
+	}
+
+	public String getProject_id() {
+		return project_id;
+	}
+
+	public void setProject_id(String project_id) {
+		this.project_id = project_id;
+	}
+
+}

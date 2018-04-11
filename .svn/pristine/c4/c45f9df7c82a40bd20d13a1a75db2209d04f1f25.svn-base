@@ -1,0 +1,193 @@
+package service.impl;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sun.javafx.css.Rule;
+
+import entity.Artisan;
+import entity.Project;
+import entity.Role;
+import entity.Supplier;
+import entity.Tech;
+import entity.TechAndArVo;
+import entity.TechVo;
+import entity.WorkFlow;
+import mapper.ArtisanMapper;
+import mapper.ProjectMapper;
+import mapper.SupplierMapper;
+import mapper.TechMapper;
+import mapper.WorkFlowMapper;
+import service.TechService;
+
+@Service
+public class TechServiceImpl implements TechService {
+
+	@Autowired
+	private TechMapper techMapper;
+	@Autowired
+	private SupplierMapper supplierMapper;
+	@Autowired
+	private ArtisanMapper artisanMapper;
+	@Autowired
+	private ProjectMapper projectMapper;
+	@Autowired
+	private WorkFlowMapper workFlowMapper;
+
+	@Test
+	public TechVo findBySupplier() {
+
+		TechVo vo = new TechVo();
+		// 查找供应商
+		List<Supplier> suppliers = supplierMapper.findAllSupplier();
+
+		vo.setSuppliers(suppliers);
+		// vo.setTechs(techs);
+
+		return vo;
+	}
+
+	/**
+	 * 根据供应商ID去查询技术
+	 * 
+	 * @param id
+	 * @return
+	 */
+	@Override
+	public TechVo findTechBySupplierId(Supplier su) {
+
+		TechVo vo = new TechVo();
+
+		Supplier sl = supplierMapper.findTechBySupplierId(su);
+
+		vo.setSupplier(sl);
+
+		return vo;
+	}
+
+	@Override
+	public TechVo findArtisanByTechIdAndSupIdAndCount(Artisan at) {
+
+		TechVo vo = new TechVo();
+		int Hsenior = artisanMapper.findArtisanByTechIdAndSupIdAndCountAndHsenior(at);
+		int Hmiddle = artisanMapper.findArtisanByTechIdAndSupIdAndCountAndHmiddle(at);
+		int Hlow = artisanMapper.findArtisanByTechIdAndSupIdAndCountAndHlow(at);
+		int Ssenior = artisanMapper.findArtisanByTechIdAndSupIdAndCountAndSsenior(at);
+		int Smiddle = artisanMapper.findArtisanByTechIdAndSupIdAndCountAndSmiddle(at);
+		int Slow = artisanMapper.findArtisanByTechIdAndSupIdAndCountAndSlow(at);
+		vo.setHsenior(Hsenior);
+		vo.setHmiddle(Hmiddle);
+		vo.setHlow(Hlow);
+		vo.setSlow(Slow);
+		vo.setSmiddle(Smiddle);
+		vo.setSsenior(Ssenior);
+		return vo;
+
+	}
+
+	@Override
+	public List<Artisan> findArtisanByTechIdAndSupIdANDState(Artisan at) {
+
+		List<Artisan> list = artisanMapper.findArtisanByTechIdAndSupIdANDState(at);
+
+		return list;
+	}
+
+	@Override
+	public TechVo updateArtisanAndWorkflowAndProjectAndSup_techAdd(Artisan at, Project pr) {
+		// 供应商ID
+		// 技术人员的修改
+		Artisan as = artisanMapper.findById(at);
+		as.setState(1);
+		as.setSup_id(at.getSup_id());
+		as.setTech_id(at.getTech_id());
+		as.setProject_id(pr.getId());
+		artisanMapper.updateById(as);
+		// 项目表修改
+		Project pj = projectMapper.findById(pr.getId());
+
+		pj.setSupplier_id(at.getSup_id());
+
+		if (as.getArt_type().equals("高级工程师")) {
+			pj.setSenior_engineer(pj.getSenior_engineer() + 1);
+		} else if (as.getArt_type().equals("中级工程师")) {
+			pj.setMiddle_engineer(pj.getMiddle_engineer() + 1);
+		} else {
+			pj.setPrimary_engineer(pj.getPrimary_engineer() + 1);
+		}
+		projectMapper.UpdateProjectAdd(pj);
+
+		// 工作流程表
+		WorkFlow wf = new WorkFlow();
+
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		Date date = new Date();
+		String data = format.format(date);
+		System.out.println(data);
+
+		wf.setStarttime(data);
+		wf.setProject_id(pj.getId());
+		wf.setArt_id(as.getId());
+		workFlowMapper.insertStratTimeAndProjectAndArt(wf);
+		// 供应技术关系表
+		System.out.println("没问题2");
+		// 返回已分配未分配人数
+		/**
+		 * 技术和人员数
+		 */
+		List<TechAndArVo> vo = artisanMapper.findTechAndArVo(pr);
+		/**
+		 * 总人数
+		 */
+		int count = artisanMapper.findCount(pr);
+		System.out.println(count);
+
+		TechVo tv = this.findArtisanByTechIdAndSupIdAndCount(as);
+
+		tv.setTechAndArVos(vo);
+		tv.setCount(count);
+
+		return tv;
+
+	}
+
+	/**
+	 * //点击模式重置 根据项目 id 项目表供应商外键为0，工程师总数为0， //人员表 根据项目 id 全部为技术表ID为0，项目id为0状态为1
+	 * //工作流程表根据项目id 删除
+	 * 
+	 * @param 陈光辉
+	 */
+	@Override
+	public void updateMode(Project pr) {
+
+		projectMapper.updateSuAndAr(pr);
+		artisanMapper.updateByPrId(pr);
+		workFlowMapper.deleteFlow(pr);
+
+	}
+
+	@Override
+	public List<Tech> findAllTech() {
+		return techMapper.findAllTech();
+	}
+
+	/**
+	 * 查询项目库
+	 */
+	@Override
+	public List<Project> findProject(Role rl) {
+		/**
+		 * 
+		 */
+		List<Project> list = projectMapper.findAllProject(2);
+		System.out.println(list);
+		return list;
+	
+	}
+
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.ProjectMapper">
+<!-- 根据不同角色，查询所有项目信息 -->
+	<select id="findAllProject" resultType="entity.Project">
+		select project_name,project_time,stage,amount,dept_name,
+		product_mgr,project_mgr,art_mgr,mode,supperlier_name,senior_engineer,
+		middle_engineer,primary_engineer
+		from project,dept,supplier
+		where project.dept_id=dept.id
+		and project.supplier_id=supplier.id
+		<if test="role_id=2">and product_mgr!=''</if>
+		<if test="role_id=3">and product_mgr!='' and project_mgr!=''</if>
+	</select>
+</mapper>

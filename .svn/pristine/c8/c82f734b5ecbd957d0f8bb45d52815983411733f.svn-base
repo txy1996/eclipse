@@ -1,0 +1,20 @@
+package mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import entity.Project;
+/**
+ * 
+ * @ProjectMapper.java
+ * @author 谭加益
+ * @time 2018年3月27日上午11:12:12
+ */
+public interface ProjectMapper {
+	/**
+	 * 根据不同角色登陆,传入不同参数查询所有项目信息
+	 * @return List<Project>
+	 */
+	public List<Project> findAllProject(@Param(value="role_id")int role_id);
+}

@@ -1,0 +1,44 @@
+package controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import entity.Project;
+import service.ProjectService;
+
+@Controller
+public class ProjectController {
+	@Autowired
+	public ProjectService projectService;
+	@ResponseBody
+	@RequestMapping("findProject.action")
+	public List<Project> findProject(){
+		return projectService.findProject(2);
+	}
+	@ResponseBody
+	@RequestMapping("updateProjectMgr.action")
+	public int updateProjectMgr(String project_Mgr,String projectName){
+		System.out.println(projectName+":"+project_Mgr);
+		projectService.updateProjectMgr(project_Mgr,projectName);
+		return 1;		
+	}
+	@ResponseBody
+	@RequestMapping("searchAllProject.action")
+	public List<Project> searchAllProject(){
+		return projectService.findProject(4);
+	}
+	/**
+	 * 根据项目id查询技术人员
+	 * @param proId
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("searchArtByProid.action")
+	public List<Project> searchArtByProid(int proId){
+		return projectService.findArtByProid(proId);
+	}
+}

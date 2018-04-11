@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!-- saved from url=(0102)file:///C:/Users/A1588/OneDrive/%E6%96%87%E6%A1%A3/layui/BBD-%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>权限设置</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<link id="layuicss-layer" rel="stylesheet" href="./权限设置_files/layer.css" media="all">
+<link href="css/author.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="atom">
+        <div id="top"></div>
+        <div class="zero">
+            <div class="head">
+                <p>&lt;用户角色&gt;</p>     
+            </div>
+            <div class="trunk aaa">
+                    <div class="trunkleft">
+                            <ul class="ulzero">
+                                    <li onclick="sel(this)">名山</li>
+                                    <li onclick="sel(this)">山与海</li>
+                                    <li onclick="sel(this)">更改使用密码 </li>
+                                    <li onclick="sel(this)">系统权限配置 </li>
+                                </ul>
+                    </div>
+                    <div class="trunkright">
+                        <button class=" buttontwo">—</button>
+                        <button class=" buttontwo">—</button>
+                        <button class=" buttontwo">—</button>
+                        <button class=" buttontwo">—</button>
+                    </div>
+            </div>
+
+
+
+            <div class="zerobottom">
+                    <div class="zerobottomleft">
+                            <input type="text" name="username" placeholder="添加用户名" class="layui-input input">
+                    </div>
+                    <div class="zerobottomright">
+                            <button type="submit" class="layui-btn layui-btn-fluid addbutton"><i class="layui-icon"></i></button>
+                    </div>
+                </div>
+            
+                
+        </div>
+        <div class="zero">
+            <div class="head">
+                <p>&lt;部门管理&gt;</p>
+                    
+            </div>
+            <div class="trunk menulist1">
+                    <div class="trunkleft">
+                            <ul class="ulzero">
+                                    <li onclick="sel1(this)">名山</li>
+                                    <li onclick="sel1(this)">山与海</li>
+                                    <li onclick="sel1(this)">更改使用密码 </li>
+                                    <li onclick="sel1(this)">系统权限配置 </li>
+                                </ul>
+                    </div>
+                    <div class="trunkright">
+                        <button class=" buttontwo ">—</button>
+                        <button class=" buttontwo">—</button>
+                        <button class=" buttontwo">—</button>
+                        <button class=" buttontwo">—</button>
+                    </div>
+            </div>
+            
+            <div class="zerobottom">
+                    <div class="zerobottomleft">
+                            <input type="text" name="username" placeholder="添加部门名称" class="layui-input input">
+                    </div>
+                    <div class="zerobottomright">
+                            <button type="submit" class="layui-btn layui-btn-fluid addbutton"><i class="layui-icon"></i></button>
+                    </div>
+                </div>
+
+            
+
+
+        </div>
+        <div class="zero" style="margin-left:7%">
+            <div class="head">
+                <p>&lt;角色管理&gt;</p>
+                   
+            </div>
+            <div class="trunk menulist2">
+                    <div class="trunkleft">
+                    <ul class="ulzero">
+                        <li onclick="sel2(this)">产品经理</li>
+                        <li onclick="sel2(this)">项目经理</li>
+                        <li onclick="sel2(this)">技术经理</li>
+                        <li onclick="sel2(this)">系统权限配置</li>
+                    </ul>
+                    </div>
+                    <div class="trunkright">
+                            <button class=" buttontwo">—</button>
+                            <button class=" buttontwo">—</button>
+                            <button class=" buttontwo">—</button>
+                            <button class=" buttontwo">—</button>
+                        </div>
+            </div>
+
+            <div class="zerobottom">
+                    <div class="zerobottomleft">
+                            <input type="text" name="username" placeholder="添加角色名称" class="layui-input input">
+                    </div>
+                    <div class="zerobottomright">
+                            <button type="submit" class="layui-btn layui-btn-fluid addbutton"><i class="layui-icon"></i></button>
+                    </div>
+                </div>
+
+            
+        </div>
+        <div class="zero" style=" width:23% ;margin-left:3%">
+            <div class="head">
+                <p> &lt;角色权限配置&gt;</p>
+                   
+            </div>
+            <div class="trunk zero1">
+
+                
+                <div class="layui-collapse">
+                    <div class="layui-colla-item">
+                      <h2 class="layui-colla-title">平台系统记录<i class="layui-icon layui-colla-icon"></i></h2>
+                      <div class="layui-colla-content">
+                        <ul>
+                            <li value="0">查看平台用户操作记录</li>
+                            <li value="0">添加修改部门名称</li>
+                            <li value="0">更改使用密码</li>
+                            <li value="0">系统权限配置</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="layui-colla-item">
+                      <h2 class="layui-colla-title">平台功能<i class="layui-icon layui-colla-icon"></i></h2>
+                      <div class="layui-colla-content">
+                        <ul>
+                        <li value="0">使用项目库功能</li>
+                        <li value="0">平台FP资源设置</li>
+                        <li value="0">平台OTM资源设置</li>
+                        <li value="0">使用Mode功能</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="layui-colla-item">
+                      <h2 class="layui-colla-title">仪表盘功能<i class="layui-icon layui-colla-icon"></i></h2>
+                      <div class="layui-colla-content">
+                        <ul>
+                            <li value="0">系统权限配置</li>
+                            <li value="0">二</li>
+                            <li value="0">三</li>
+                            <li value="0">四</li>
+                            </ul>
+                      </div>
+                    </div>
+                  </div>     
+
+
+
+
+                   
+            </div>
+            <div class="bottom">
+                    <button class="layui-btn layui-btn-normal layui-btn-radius button">取消</button>
+                    <button class="layui-btn layui-btn-danger layui-btn-radius button">确定</button>
+            </div>
+        </div>
+    </div>
+
+
+<script src="layui/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<script>
+layui.use(['element', 'layer'], function(){
+  var element = layui.element;
+  var layer = layui.layer;
+  
+  //监听折叠
+  element.on('collapse(test)', function(data){
+    layer.msg('展开状态：'+ data.show);
+  });
+});
+
+
+</script>
+
+<script type="text/javascript">
+    // var myli = document.getElementsByTagName("li");
+    var zero = $(".zero1 li")
+    for(var i=0;i<zero.length;i++){
+        zero[i].index=i;
+        
+        zero[i].onclick=function(){
+            var j=this.index;
+            if (zero[j].value=="0") {
+                zero[j].style.background="rgb(127, 127, 127)";
+                zero[j].style.color="rgb(255,255,255)";
+                zero[j].value="1";
+            } else {
+                zero[j].style.background="rgb(242, 242, 242)"
+                zero[j].style.color="rgb(0,0,0)";
+                zero[j].value="0";
+            }
+            
+            console.log(zero[j].innerText)
+              
+        }
+    }
+
+
+     function sel(obj) {
+       var menu = $(".aaa li")
+       for(var i=0;i<menu.length;i++)
+       {
+           if(menu[i]!=obj)
+           {
+               $(menu[i]).css('background-color','rgb(242, 242, 242)')
+               $(menu[i]).css('color','rgb(0, 0, 0)')
+           }
+           else
+               $(menu[i]).css('background-color','#b7b7b7')
+               $(menu[i]).css('color','rgb(127, 145, 197)')
+       }
+   }
+   function sel1(obj) {
+       var menu1 = $(".menulist1 li")
+       for(var i=0;i<menu1.length;i++)
+       {
+           if(menu1[i]!=obj)
+           {
+               $(menu1[i]).css('background-color','rgb(242, 242, 242)')
+           }
+           else
+               $(menu1[i]).css('background-color','#b7b7b7')
+       }
+   }
+
+   function sel2(obj) {
+       var menu2 = $(".menulist2 li")
+       for(var i=0;i<menu2.length;i++)
+       {
+           if(menu2[i]!=obj)
+           {
+               $(menu2[i]).css('background-color','rgb(242, 242, 242)')
+           }
+           else
+               $(menu2[i]).css('background-color','#b7b7b7')
+       }
+   }
+
+</script>
+
+</body></html>

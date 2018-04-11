@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.SupplierMapper">
+	<resultMap type="Supplier" id="SuppTech">
+		<id property="id" column="fpid"></id>
+		<result property="supperlier_name" column="fpName"/>
+		<collection property="techs" ofType="Tech">
+			<id property="id" column="techid"></id>
+			<result property="tech_name" column="techName"/>
+		</collection>
+	</resultMap>
+	
+	<select id="findBySupid" parameterType="int" resultMap="SuppTech">
+		SELECT su.`id` fpid,su.`supperlier_name` fpName,te.`id` techid,te.`tech_name` techName
+		FROM supplier su,supandtech sat,tech te
+		WHERE su.`id`=sat.`sup_id` AND sat.`tech_id`=te.`id` AND su.`id`=#{id};
+	</select>
+	
+	<select id="selectAll" resultType="Supplier">
+		SELECT id,supperlier_name FROM supplier;
+	</select>
+	
+	<select id="findBySupname" resultType="Supplier">
+		SELECT id FROM supplier where supperlier_name=#{supName};
+	</select>
+	
+	<select id="findAllSupplier" resultType="Supplier">
+		SELECT id,supperlier_name FROM supplier;
+	</select>
+	
+	<insert id="insert" parameterType="Supplier">
+		insert into supplier(supperlier_name) values(#{supperlier_name});
+	</insert>
+
+	<resultMap type="Supplier" id="supplier">
+		<id property="id" column="sup_id"/>
+		<result property="supperlier_name" column="supperlier_name"/>
+		
+		<collection property="techs" ofType="tech">
+		<id property="id" column="tech_id"/>
+		<result property="tech_name" column="tech_name"/>
+		</collection>
+	</resultMap>
+	
+	<select id="findTechBySupplierId" parameterType="supplier" resultMap="supplier">
+	SELECT st.`sup_id`,st.`tech_id`, t.`tech_name` 
+	FROM supplier s 
+	INNER JOIN supandtech st 
+	ON s.`id` = st.`sup_id` 
+	INNER JOIN tech t 
+	ON st.`tech_id` = t.`id` 
+	WHERE st.`sup_id` = #{id}
+	</select>
+	
+	<delete id='delete' parameterType='int'>
+		delete from supplier where id=#{id}
+	</delete>
+
+</mapper>

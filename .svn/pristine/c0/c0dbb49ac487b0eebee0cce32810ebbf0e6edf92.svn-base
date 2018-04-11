@@ -1,0 +1,39 @@
+package entity;
+
+/**
+ * 
+ * @author 部门表 陈光辉
+ * @date2018年3月26日下午3:25:38
+ *
+ */
+public class Dept {
+
+	private int id; // 部门表ID
+	private String dept_name; // 部门名称
+	private String Abbreviation;// 部门简称
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getDept_name() {
+		return dept_name;
+	}
+
+	public void setDept_name(String dept_name) {
+		this.dept_name = dept_name;
+	}
+
+	public String getAbbreviation() {
+		return Abbreviation;
+	}
+
+	public void setAbbreviation(String abbreviation) {
+		Abbreviation = abbreviation;
+	}
+
+}

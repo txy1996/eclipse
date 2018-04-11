@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.TechMapper">
+
+	<insert id="insert" parameterType="entity.Tech">
+		insert into tech(`tech_name`) 
+				  VALUES(#{tech_name})
+	</insert>
+
+	<delete id="delete" parameterType="int">
+		delete from tech where id = #{id}
+	</delete>
+	
+	<select id="findByName" resultType="tech">
+		SELECT id FROM tech where tech_name = #{techname}
+	</select>
+	
+	<select id="findAllTech" resultType="tech">
+		select tech_name from tech
+	</select>
+</mapper>

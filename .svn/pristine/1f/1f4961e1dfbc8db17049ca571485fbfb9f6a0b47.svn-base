@@ -1,0 +1,66 @@
+/**
+ * LogInfo.java
+ */
+package entity;
+/**
+ * @author SGY
+ * @date 2018年3月26日
+ * 日志信息实体类
+ */
+public class LogInfo {
+	private int id;
+	private String login_username;//用户名
+	private String role_name;//角色名
+	private String login_time;//登录时间
+	private String prject_name;//项目名
+	private String opera_name;//操作名称
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getLogin_username() {
+		return login_username;
+	}
+	public void setLogin_username(String login_username) {
+		this.login_username = login_username;
+	}
+	public String getRole_name() {
+		return role_name;
+	}
+	public void setRole_name(String role_name) {
+		this.role_name = role_name;
+	}
+	public String getLogin_time() {
+		return login_time;
+	}
+	public void setLogin_time(String login_time) {
+		this.login_time = login_time;
+	}
+	public String getPrject_name() {
+		return prject_name;
+	}
+	public void setPrject_name(String prject_name) {
+		this.prject_name = prject_name;
+	}
+	public String getOpera() {
+		return opera_name;
+	}
+	public void setOpera(String opera) {
+		this.opera_name = opera;
+	}
+	public LogInfo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public LogInfo(String login_username, String role_name, String login_time, String prject_name, String opera) {
+		super();
+		this.login_username = login_username;
+		this.role_name = role_name;
+		this.login_time = login_time;
+		this.prject_name = prject_name;
+		this.opera_name = opera;
+	}
+	
+}

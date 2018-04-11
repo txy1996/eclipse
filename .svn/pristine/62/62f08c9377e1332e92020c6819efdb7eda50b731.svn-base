@@ -1,0 +1,21 @@
+package controller;
+
+import entity.TechVo;
+
+/**
+ * 
+ * @author 陈光辉 技术经理页面 2018年3月27日
+ */
+public class TechController {
+
+	/**
+	 * FP透视
+	 */
+	// 查找供应商名称 和 技术类型
+	TechVo findBySupplierAndTech() {
+
+		return findBySupplierAndTech();
+
+	}
+
+}

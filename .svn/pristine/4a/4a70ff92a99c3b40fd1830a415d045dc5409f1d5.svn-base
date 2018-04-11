@@ -1,0 +1,39 @@
+/**
+ * LogServiceImpl.java
+ */
+package service.impl;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import entity.LogInfo;
+import mapper.LogInfoMapper;
+import service.LogService;
+
+/**
+ * @author SGY
+ * @date 2018年3月26日
+ */
+@Service("logInfoService")
+public class LogServiceImpl implements LogService {
+	@Resource
+	private LogInfoMapper loginfo;
+	
+	public LogInfoMapper getLoginfo() {
+		return loginfo;
+	}
+
+	public void setLoginfo(LogInfoMapper loginfo) {
+		this.loginfo = loginfo;
+	}
+
+	@Override
+	public List<LogInfo> search(String projectname, String username, String time) {
+		
+		return loginfo.selectProAndNameAndDate(projectname, username, time);
+	}
+
+}

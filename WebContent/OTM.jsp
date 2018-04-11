@@ -1,0 +1,318 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BBS-SMS</title>
+<link href="${pageContext.request.contextPath }/css/style.css"
+	rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/css/OTM.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath }/layui/css/layui.css">
+</head>
+<body>
+	<!--主体内容显示区-->
+	<div id="main">
+		<!--头部，项目logo显示区-->
+		<div class="header">
+			<div id="logo">
+				<img src="image/LOGO.png">
+			</div>
+			<div id="title">数联铭品软件开发资源管理系统 v1.0</div>
+			<div id="login">
+				<i class="layui-icon" style="color: white">&#xe623;</i> <a href="#">项目-夏经理</a>
+			</div>
+		</div>
+		<!--上部内容显示区-->
+		<div id="content">
+			<!--菜单显示区-->
+			<div id="meau">
+				<div id="icon">
+					<img src="${pageContext.request.contextPath }/image/menuicon.png"
+						style="float: left;">主菜单
+				</div>
+
+				<ul class="menulist">
+					<li id="menu1" onclick="sel(this);"><a href="#"><i
+							class="layui-icon" style="float: left; padding-left: 15px">&#xe63c;</i>项目库</a></li>
+					<li id="menu2" onclick="sel(this);"><a href="#"><i
+							class="layui-icon" style="float: left; padding-left: 15px">&#xe63c;</i>我的项目</a></li>
+				</ul>
+
+			</div>
+			<!--表格数据显示区-->
+			<!--表格列名-->
+			<div class="message">
+				<table class="list">
+					<thead>
+						<tr>
+							<th>创建时间</th>
+							<th>项目名称</th>
+							<th>项目阶段</th>
+							<th>项目金额</th>
+							<th>所属部门</th>
+							<th>产品</th>
+							<th>项目</th>
+							<th>技术</th>
+							<th>Mode</th>
+							<th>供应商</th>
+							<th>高</th>
+							<th>中</th>
+							<th>低</th>
+							<th>总</th>
+							<th>人天</th>
+						</tr>
+					</thead>
+					<tbody class="detail" id="thisfirst">
+						
+							
+						
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!--数据详情显示区-->
+		<div id="content1">
+			<div id="add">
+				<img src="${pageContext.request.contextPath }/image/加号.png">
+			</div>
+			<div id="project">
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<div class="msg">
+					项目名称： <input type="text" value="" placeholder="项目名称" />
+				</div>
+				&nbsp;&nbsp;&nbsp;
+				<div class="msg">
+					项目预算金额： ￥ <input type="text" value="" placeholder="项目预算金额" />
+				</div>
+				&nbsp;&nbsp;&nbsp;
+				<div class="msg mode">
+					项目执行模式:
+					<input type="text" readonly="readonly" value="" /> 
+					<input	type="text" readonly="readonly" value="" /> 
+					<input type="text"	readonly="readonly" value="" />
+				</div>
+			</div>
+		</div>
+		<!--仪表盘区域-->
+		<div id="content2">
+			<!--左部仪表盘-->
+			<div class="dashboard">
+				<div id="dash">仪表盘</div>
+
+				<ul class="menulist1">
+					<li id="fp_show" onclick="sel1(this);"><a href="javascript:;"><i
+							class="layui-icon" style="float: left; padding-left: 15px">&#xe63c;</i>FP透视</a></li>
+					<li id="otm_show" onclick="sel1(this);"><a href="javascript:;"><i
+							class="layui-icon" style="float: left; padding-left: 15px">&#xe63c;</i>OTM人力</a></li>
+				</ul>
+			</div>
+			<!--上部信息分类栏-->
+			<div id="div1" style="display: block" ">
+				<div class="upmessage">
+					<ul class="fpupmessage">
+						<li id=li1>供应商名称</li>
+						<li id=li7>技术类型</li>
+						<li id=li2>分配</li>
+						<li id=li2>高级</li>
+						<li id=li3>中级</li>
+						<li id=li4>初级</li>
+						<li id=li5>工程师列表</li>
+						<li id=li6>模式配置确认</li>
+					</ul>
+				</div>
+
+				<!--下部信息显示栏-->
+				<div class="downmessage1">
+					<div class="down1" >
+						<ul id="supplier">
+							<li>软通动力</li>
+							<li>软通动力1</li>
+							<li>软通动力2</li>
+							<li>软通动力2</li>
+							<li>软通动力2</li>
+							<li>软通动力2</li>
+							<li>软通动力2</li>
+							<li>软通动力2</li>
+						</ul>
+					</div>
+					<div class="downj">
+						<ul id = "dept">
+							<li>WEB前端</li>
+							<li>系统后端</li>
+							<li>APP（IOS）</li>
+							<li>APP（Android）</li>
+							<li>大数据算法</li>
+							<li>爬虫开发</li>
+							<li>软通动力2</li>
+							<li>软通动力2</li>
+						</ul>
+					</div>
+					<div class="down3" >
+						<ul id = "artisanCount">
+							<li><span>已分配</span> <span class="shover">--4(--6)</span> <span>--4(--6)</span>
+								<span>--4(--6)</span></li>
+							<li><span>未分配</span> <span>--4(--6)</span> <span>--4(--6)</span>
+								<span>--4(--6)</span></li>
+						</ul>
+					</div>
+					<div class="down2" id="artisan">
+						<div class="left1" >
+							<ul>
+								<li><img
+									src="${pageContext.request.contextPath }/image/00.png"
+									width="20px" height="20px"></li>
+								<li><img
+									src="${pageContext.request.contextPath }/image/--.png"
+									width="20px" height="20px"></li>
+								<li><img
+									src="${pageContext.request.contextPath }/image/red.png"
+									width="20px" height="20px"></li>
+							</ul>
+
+						</div>
+						<ul>
+							<li><span>张三</span> <span>高级</span></li>
+							<li><span>--4(--6)</span> <span>--4(--6)</span></li>
+							<li><span>--4(--6)</span> <span>--4(--6)</span></li>
+							<li><span>--4(--6)</span> <span>--4(--6)</span></li>
+							<li><span>--4(--6)</span> <span>--4(--6)</span></li>
+							<li><span>--4(--6)</span> <span>--4(--6)</span></li>
+							<li><span>--4(--6)</span> <span>--4(--6)</span></li>
+						</ul>
+
+					</div>
+					<div class="down4" id="fp">
+						<ul id = "techCount">
+							<li><span>FP模式:</span> <span>软通动力</span></li>
+							<li><span>web前端:</span> <span>2</span></li>
+							<li><span>APP（IOS）:</span> <span>4</span></li>
+							<li><span>APP（Android）:</span> <span>4</span></li>
+						<li>
+								<hr style="height: 1px; border: none; border-top: 1px solid #555555;" />
+						</li>
+							<li><span>总计:</span> <span>10</span></li>
+						</ul>
+						<div class="moshi">
+							<img src="${pageContext.request.contextPath}/image/010.png"
+								width="180px" height="50px" />
+							<img src="${pageContext.request.contextPath}/image/加号.png"
+								 />
+						</div>
+					</div>
+				
+				
+				
+				
+				
+				</div>
+			</div>
+
+
+			<div id="div2" style="display: none" >
+
+				<div class="upmessage">
+					<ul class="fpupmessage">
+
+						<li id=li1>技术类型</li>
+						<li id=li8>分配</li>
+						<li id=li8>高级</li>
+						<li id=li8>中级</li>
+						<li id=li8>初级</li>
+						<li id=li9>工程师列表</li>
+						<li id=li6>模式配置确认</li>
+
+					</ul>
+				</div>
+
+				<!--下部信息显示栏-->
+				<div class="downmessage1">
+
+
+					<div class="down1">
+						<ul type="">
+							<li><a>WEB前端</a></li>
+							<li><a>系统后端</a></li>
+							<li><a>APP（IOS）</a></li>
+							<li><a>APP（Android）</a></li>
+							<li><a>大数据算法</a></li>
+							<li><a>爬虫开发</a></li>
+							<li><a>爬虫开发</a></li>
+						</ul>
+					</div>
+					<div class="down6">
+						<ul>
+							<li><span>已分配</span> <span>--4(--6)</span> <span>--4(--6)</span>
+								<span>--4(--6)</span></li>
+							<li><span>未分配</span> <span>--4(--6)</span> <span>--4(--6)</span>
+								<span>--4(--6)</span></li>
+						</ul>
+					</div>
+
+
+					<div class="down2">
+						<div class="left1">
+							<ul>
+								<li><img
+									src="${pageContext.request.contextPath }/image/00.png"
+									width="20px" height="20px"></li>
+								<li><img
+									src="${pageContext.request.contextPath }/image/--.png"
+									width="20px" height="20px"></li>
+								<li><img
+									src="${pageContext.request.contextPath }/image/red.png"
+									width="20px" height="20px"></li>
+							</ul>
+
+						</div>
+						<ul>
+							<li><span>张三</span> <span>高级</span></li>
+							<li><span>--4(--6)</span> <span>--4(--6)</span></li>
+							<li><span>--4(--6)</span> <span>--4(--6)</span></li>
+							<li><span>--4(--6)</span> <span>--4(--6)</span></li>
+							<li><span>--4(--6)</span> <span>--4(--6)</span></li>
+							<li><span>--4(--6)</span> <span>--4(--6)</span></li>
+							<li><span>--4(--6)</span> <span>--4(--6)</span></li>
+						</ul>
+					</div>
+
+
+					<div class="down4">
+						<div class="down5"></div>
+						<ul>
+							<li><span>FP模式:</span> <span>软通动力</span></li>
+							<li><span>web前端:</span> <span>2</span></li>
+							<li><span>APP（IOS）:</span> <span>4</span></li>
+							<li><span>APP（Android）:</span> <span>4</span></li>
+							<li>
+								<hr style = "height: 1px; border: none; border-top: 1px solid #555555;" />
+							</li>
+							<li><span>总计:</span> <span>10</span></li>
+						</ul>
+						
+						<div class="moshi">
+							<img src="${pageContext.request.contextPath }/image/010.png" width="180px" height="50px" />
+						</div>
+						
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/my.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/my2.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/my3.js"></script>
+<script type="text/javascript">
+
+
+</script>
+
+</html>

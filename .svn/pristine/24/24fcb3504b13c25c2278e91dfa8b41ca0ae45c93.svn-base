@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FP资源</title>
+
+    <link type="text/css" rel="stylesheet" href="css/sid-style.css">
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="layer/layer.js"></script>
+    <script src="layui/layui.js"></script>
+
+
+
+</head>
+<body style="background-color: #7F7F7F;font-family:Microsoft YaHei,微软雅黑">
+    <div id="div-fp">
+        <!-- 供应商 列表-->
+        <div id="fp">
+            <table class="fp-tab">
+                <thead><tr><th class="tab-th" colspan="2">&lt;供应商名称&gt;</th></tr></thead>
+                    <tr class="tab-tb"><td class="tab-td" onclick="selFP(this)">软通动力</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+                    <tr class="tab-tb"><td class="tab-td" onclick="selFP(this)">软通动力</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+                    <tr class="tab-tb"><td class="tab-td" onclick="selFP(this)">软通动力</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+                    <tr class="tab-tb"><td class="tab-td" onclick="selFP(this)">软通动力</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+            </table>
+        </div>
+
+        <!-- 技术列表 -->
+        <div id="fp-skil">
+            <table class="fp-tab">
+                <thead><tr><th class="tab-th" colspan="2">&lt;技术类型&gt;</th></tr></thead>
+
+                <tr class="tab-tb"><td class="tab-td" onclick="selOTM(this)">web前端</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+                <tr class="tab-tb"><td class="tab-td" onclick="selOTM(this)">Java</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+                <tr class="tab-tb"><td class="tab-td" onclick="selOTM(this)">IOS</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+
+            </table>
+        </div>
+
+        <!-- 技术人员列表 -->
+        <div id="fp-technician">
+            <table class="fp-tab">
+                <thead>
+                    <tr class="tab-th">
+                        <th>&lt;姓名&gt;</th>
+                        <th>&lt;职级&gt;</th>
+                        <th colspan="2">&lt;人天成本&gt;</th>
+                    </tr>
+                </thead>
+
+                <tr class="tab-tb" onclick="selOTM(this)"><td>张三</td><td>高级</td><td>100</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+                <tr class="tab-tb" onclick="selOTM(this)"><td>李四</td><td>高级</td><td>100</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+                <tr class="tab-tb" onclick="selOTM(this)"><td>王五</td><td>高级</td><td>100</td><td class="minsign"><a href="#"><img src="image/minsign.png"></a></td></tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div id="form-item">
+            <table>
+                <tr>
+                    <td><input class="text-input" type="text" name="password" placeholder="输入供应商名称" autocomplete="off"><a href="#"><img src="image/增加.png"></a></td>
+                    <td><input class="text-input" type="text" name="password" placeholder="输入技术类型" autocomplete="off"><a href="#"><img src="image/增加.png"></a></td>
+                    <td><input class="text-input" type="text" name="password" placeholder="输入工程师姓名" autocomplete="off"></td>
+                    <td><select name="city" lay-verify="required">
+                                <option value="">选择职级</option>
+                                <option value="0">北京</option>
+                                <option value="1">上海</option>
+                                <option value="2">广州</option>
+                                <option value="3">深圳</option>
+                                <option value="4">杭州</option>
+                            </select>
+                        <a href="#"><img src="image/增加.png"></a>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="btn-item">
+
+                    <button class="layui-btn layui-btn-danger" onclick="immediately()">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">取消</button>
+            </div>
+
+    </div>
+
+</body>
+<script>
+    /* 选择FP供应商 */
+    function  selFP(obj) {
+        var fps = $('#fp .fp-tab .tab-td');
+        console.log(obj);
+        for(var i=0;i<fps.length;i++){
+            if(fps[i]!=obj){
+               $(fps[i]).css(
+                   {'background-color':'#F2F2F2',
+                     'color': '#7F83AC'
+                   });
+            }else{
+                $(fps[i]).css(
+                    {'background-color':'#000000',
+                        'color': 'white'
+                    });
+            }
+        }
+    }
+
+    /* 选择技术类型和技术人员 */
+    function selOTM(skil){
+        var otms = $('#fp-skil .fp-tab .tab-td ,#fp-technician .fp-tab .tab-tb');
+        console.log(skil);
+        for(var i=0;i<otms.length;i++){
+            if (skil == otms[i]) {
+                var co = $(otms[i]).css('color');
+                console.log(co);
+                if(co=='rgb(255, 255, 255)'){
+                    $(otms[i]).css(
+                        {'background-color':'#F2F2F2',
+                            'color': '#7F83AC'
+                        });
+                }else{
+                    $(otms[i]).css(
+                        {
+                            'background-color': '#000000',
+                            'color': 'white'
+                        });
+                }
+
+            }
+        }
+    }
+
+    function immediately(){
+        layer.confirm('确认修改系统配置？', {
+            btn: ['确认','取消'] //按钮
+        }, function(){
+            layer.msg('删除成功', {icon: 1});
+        });
+    }
+</script>
+</html>

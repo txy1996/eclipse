@@ -1,0 +1,24 @@
+/**
+ * SupAndTechMapper.java
+ */
+package mapper;
+
+import entity.SupAndTech;
+
+/**
+ * @author SGY
+ * @date 2018年3月26日
+ * 供应商技术关系dao
+ */
+public interface SupAndTechMapper {
+	/**
+	 * 插入供应商技术关系
+	 * @param sat
+	 */
+	public void insert(SupAndTech sat);
+	/**
+	 * 根据供应商id删除供应商技术关系
+	 * @param supid
+	 */
+	public void delete(int supid);
+}

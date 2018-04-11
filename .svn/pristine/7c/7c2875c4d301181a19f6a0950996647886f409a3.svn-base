@@ -1,0 +1,11 @@
+package mapper;
+/**
+ * 用户表的接口类
+ * @author 晓煜
+ * @date2018年3月26日下午3:57:51
+ * @version
+ * @explain
+ */
+public interface UserMapper {
+	
+}

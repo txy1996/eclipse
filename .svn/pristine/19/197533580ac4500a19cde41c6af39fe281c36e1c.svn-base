@@ -1,0 +1,64 @@
+package controller;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.ResultMap;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import entity.Artisan;
+import entity.Project;
+import entity.TechVo;
+import entity.WorkFlow;
+import service.TechService;
+
+/**
+ * 
+ * @author 陈光辉 技术经理页面 2018年3月27日
+ */
+@Controller
+public class TechController {
+
+	@Autowired
+	private TechService ts;
+	/**
+	 * FP透视
+	 * @return 
+	 */
+	// 查找供应商名称 和 技术类型
+	@RequestMapping("/zhiliaotang/Tech.action")
+	public  void findBySupplierAndTech() {
+		 TechVo vo = ts.findBySupplierAndTech();
+		 System.out.println(vo);
+	}
+	//查询数目
+	@RequestMapping("/zhiliaotang/ArtisanCount.action")
+	public  void findArtisanByTechIdAndSupIdAndCount(Artisan at){
+		
+		TechVo vo = ts.findArtisanByTechIdAndSupIdAndCount(at);
+		System.out.println(vo);
+		
+	}
+	//根据供应商，技术类型，和工作状态查询员工
+	
+	@RequestMapping("/zhiliaotang/Artisan.action")
+	public  void findArtisanByTechIdAndSupIdANDState(Artisan at){
+		at.setState(1);
+		at.setSup_id(1);
+		at.setTech_id(1);
+		List<Artisan> list= ts.findArtisanByTechIdAndSupIdANDState(at);
+		
+	}
+	
+	public void  updateArtisanAndWorkflowAndProjectAndSup_tech(Project po , Artisan at ,WorkFlow wf) {
+		
+		
+	}
+	
+	
+	
+	
+	
+}
